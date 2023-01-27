@@ -22,12 +22,13 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="images/ssg.jpg" alt="sing up image"></figure>
-                        <a href="register.php" class="signup-image-link">Create an account</a>
+                        <a href="studentregister.php" class="signup-image-link">Create Student Account</a>
+                        <a href="parentregister.php" class="signup-image-link">Create Parent Account</a>
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Login</h2>
-                        <form action="logincode.php" method="POST">
+                        <form action="logincode.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="email"  placeholder="Your Name"/>
@@ -54,5 +55,38 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+
+     <!-- SCRIPT FOR SWEET ALERT -->
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  
+
+
+<?php
+        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
+        {
+            ?>
+                <script>
+                swal({
+                title: "<?php echo $_SESSION['status']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
+                timer: 5000,
+                button: "Close",
+                }).then(
+                function () {},
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                    //console.log('I was closed by the timer')
+                    }
+                }
+                )
+                </script>
+                <?php
+                unset($_SESSION['status']);
+                unset($_SESSION['status_code']);
+        }
+                ?>
+                
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
