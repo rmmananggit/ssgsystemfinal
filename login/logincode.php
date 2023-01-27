@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('admin/config/dbcon.php');
+include('../admin/config/dbcon.php');
 
 if(isset($_POST['login_btn']))
 {
@@ -32,7 +32,7 @@ if(isset($_POST['login_btn']))
         if( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '1')
         {
             $_SESSION['message'] = "Welcome Administrator!";
-            header("Location: admin/index.php");
+            header("Location: ../admin/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '5' &&  $_SESSION['pos_role'] == '4')
@@ -63,7 +63,7 @@ if(isset($_POST['login_btn']))
     else
     {
         $_SESSION['message'] = "Invalid Email or Password";
-        header("Location: login.php");
+        header("Location: ../login/index.php");
         exit(0);
     }
 }   
