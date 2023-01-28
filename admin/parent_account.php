@@ -86,7 +86,19 @@ include('includes/header.php');
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
                                         <td><?= $row['email']; ?></td>
                                         <td><?= $row['user_status']; ?></td>
-                                        <td> <a href="#" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a></td>
+                                        <td>
+                                        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ACTION
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+    <a class="dropdown-item" type="button" href="student_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
+    <a class="dropdown-item" type="button">DELETE</a>
+  </div>
+</div>             
+
+                                        </td>
                                     </tr>
                                     <?php
                                 }

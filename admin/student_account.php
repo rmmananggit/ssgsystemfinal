@@ -42,8 +42,6 @@ include('includes/header.php');
                                             <th>Student I.D</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Year</th>
-                                            <th>Section</th>
                                             <th>Status</th>
                                             <th>ACTION</th>
                                         </tr>
@@ -53,8 +51,6 @@ include('includes/header.php');
                                         <th>Student I.D</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Year</th>
-                                        <th>Section</th>
                                         <th>Status</th>
                                         <th>ACTION</th>
                                         </tr>
@@ -68,8 +64,6 @@ include('includes/header.php');
                             student.lname, 
                             student.email, 
                             student.`password`, 
-                            student.`year`, 
-                            student.section, 
                             student.id, 
                             user_status.user_status, 
                             student.fines
@@ -89,14 +83,18 @@ include('includes/header.php');
                                         <td><?= $row['id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
                                         <td><?= $row['email']; ?></td>
-                                        <td><?= $row['year']; ?></td>
-                                        <td><?= $row['section']; ?></td>
                                         <td><?= $row['user_status']; ?></td>
-                                        <td> <a href="student_view.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a>
-                                    
-                                        <a href="student_edit.php?id=<?=$row['user_id'];?>" class="btn btn-warning btn-sm"><i class="fa-sharp fa-solid fa-pen"></i></a>
-
-                                        <a href="student_edit.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                        <td> 
+                                        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ACTION
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+    <a class="dropdown-item" type="button" href="student_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
+    <a class="dropdown-item" type="button">DELETE</a>
+  </div>
+</div>                                 
 
                                         </td>
                                     </tr>
@@ -117,6 +115,9 @@ include('includes/header.php');
                             </div>
                         </div>
                     </div>
+
+
+
 
 
 

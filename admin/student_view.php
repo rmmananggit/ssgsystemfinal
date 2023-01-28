@@ -61,27 +61,27 @@ include('includes/header.php');
                                     <p class="form-control-plaintext"><?=$user['id'];?></p>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 text-center">
                                     <label for=""><strong>First Name</strong></label>
                                     <p class="form-control-plaintext"><?=$user['fname'];?></p>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 text-center">
                                 <label for=""><strong>Middle Name</strong></label>
                                     <p class="form-control-plaintext"><?=$user['mname'];?></p>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 text-center">
                                 <label for=""><strong>Last Name</strong></label>
                                     <p class="form-control-plaintext"><?=$user['lname'];?></p>
                                 </div>
                                 
-                                <div class="col-md-8 mb-3">
+                                <div class="col-md-8 mb-3 text-center">
                                 <label for=""><strong>Email</strong></label>
                                     <p class="form-control-plaintext"><?=$user['email'];?></p>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 text-center ">
                                 <label for=""><strong>Mobile Number</strong></label>
                                     <p class="form-control-plaintext"><?=$user['mobilenumber'];?></p>
                                 </div>
@@ -129,17 +129,34 @@ include('includes/header.php');
 
                                 <hr class="mt-2 mb-3"/>
                                 <h2></h2>
-                                <div class="col-md-12 mb-3">
+                                <h4 class="text-center mb-4">Fines & Balance</h4>
+                                <div class="col-md-3 mb-3">
                                 <label for=""><strong>Fines:</strong></label>
                                 <i class="fa-sharp fa-solid fa-peso-sign"></i> <?=$user['fines'];?>
                                 </div>
                               
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-3 mb-3">
                                 <label for=""><strong>Balance:</strong></label>
                                <i class="fa-sharp fa-solid fa-peso-sign"></i> <?=$user['balance'];?>
                                 </div>
                             
-                                
+                                <hr class="mt-2 mb-3"/>
+                                <h4 class="text-center mb-4">School Id Picture</h4>
+                                <div class="col-md-6 mb-3 text-center">
+                                <label for=""><strong>ID (Front): <br></strong></label> <br>
+                                <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['front']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                                </div>
+
+                                <div class="col-md-6 mb-3 text-center">
+                                <label for=""><strong>ID (Back): <br></strong></label> <br>
+                                <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['back']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                                </div>
                             </div>
 
                             <a href="student_account.php" class="btn btn-danger float-end">BACK</a>

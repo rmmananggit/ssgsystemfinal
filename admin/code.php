@@ -1,6 +1,74 @@
 <?php
 include('authentication.php');
+?>
 
+
+<?php
+if(isset($_POST['add_expense']))
+{
+
+    $date = new DateTime();
+    $date->setTimezone(new DateTimeZone('UTC'));
+    $date_added = $date->format('Y-m-d H:i:s');
+
+
+    $user_id = $_POST['user_id'];
+    $purpose = $_POST['purpose'];
+    $amount = $_POST['amount'];
+
+    $query = "INSERT INTO `ssg_expenses`( `user`, `purpose`, `amount`, `date`) VALUES ('$user_id','$purpose','$amount','$date_added')";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Expenses Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: liquidation.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: liquidation.php');
+        exit(0);
+      }
+
+}
+?>
+
+
+<?php
+if(isset($_POST['update_student']))
+{
+    $user_id= $_POST['user_id'];
+    $id= $_POST['id'];
+    $fname= $_POST['fname'];
+    $mname= $_POST['mname'];
+    $lname= $_POST['lname'];
+    $email= $_POST['email'];
+    $mobilenumber= $_POST['mobilenumber'];
+
+    $query = "UPDATE `student` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`mobilenumber`='$mobilenumber',`id`='$id' WHERE `user_id`='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Student Information Updated";
+        $_SESSION['status_code'] = "success";
+        header('Location: student_account.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something is wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: student_account.php');
+        exit(0);
+    }
+}
+?>
+
+
+
+<?php
 if(isset($_POST['user_delete']))
 {
     $user_id= $_POST['user_delete'];
@@ -21,8 +89,9 @@ if(isset($_POST['user_delete']))
         exit(0);
     }
 }
+?>
 
-
+<?php
 if(isset($_POST['logout_btn']))
 {
     // session_destroy();
@@ -30,8 +99,9 @@ if(isset($_POST['logout_btn']))
     unset( $_SESSION['auth_role']);
     unset( $_SESSION['auth_user']);
 
-    $_SESSION['message'] = "Logout Successfully";
-    header("Location: ../login.php");
+    $_SESSION['status'] = "Logout Successfully";
+    $_SESSION['status_code'] = "success";
+    header("Location: ../login/index.php");
     exit(0);
 }
 ?>
@@ -113,52 +183,6 @@ if(isset($_POST["add_officer"])){
 ?>
 
 <?php
-if(isset($_POST['add_student']))
-{
-    $schoolid = $_POST['schoolid'];
-    $username = $_POST['username'];
-    $fname = $_POST['fname'];
-    $mname = $_POST['mname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $mobile = $_POST['mobilenumber'];
-    $fines = $_POST['fines'];
-    $balance = $_POST['fines'];
-    $user_role_id = $_POST['role_as'];
-    $user_status_id= $_POST['status'];
-    $password = "Password@123";
-
-        $checkemail = "SELECT email FROM users WHERE email='$email'";
-        $checkemail_run = mysqli_query($con,$checkemail);
-
-        if(mysqli_num_rows($checkemail_run) > 0)
-        {
-            $_SESSION['message'] = "Email already exists";
-            header("Location: user.php");
-            exit(0);
-        }
-        else{
-            $query = "INSERT INTO `users`(`school-id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `email`, `mobile_number`, `fines`, `balance`, `user_role_id`, `user_status_id`) VALUES ('$schoolid','$username','$password','$fname','$mname','$lname','$email','$mobile','$fines','$balance','$user_role_id','$user_status_id')";
-            $query_run = mysqli_query($con, $query);
-
-            if($query_run)
-            {
-                $_SESSION['message'] = "User Added Successfully";
-                header("Location: user.php");
-                exit(0);
-            }
-            else
-            {
-                $_SESSION['message'] = "ERROR! SOMETHING WENT WRONG!";
-                header("Location: user.php");
-                exit(0);
-            }
-        }   
-}
-?>
-
-
-<?php
 if(isset($_POST['payfines_btn']))
 {
     $id = $_POST['user_id'];
@@ -209,6 +233,7 @@ if(isset($_POST['payfines_btn']))
     header('Location: fines.php');
     exit(0);
 }
+
 ?>
 
 

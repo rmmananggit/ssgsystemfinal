@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<?php session_start(); ?>
     <div class="main">
 
         <!-- Sign up form -->
@@ -22,8 +23,10 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form action="registercode.php" method="POST" class="register-form" id="register-form">
+
+                        <form action="registercode.php" method="POST" enctype="multipart/form-data" >
                         <div class="form-group">
+    
                                 <label for="name"></label>
                                 <input type="text" name="id" required placeholder="Id Number"/>
                             </div>
@@ -49,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="re-pass"></label>
+                                <label for="pass"></label>
                                 <input type="password" name="confirm_password" required placeholder="Repeat your password"/>
                             </div>
 
@@ -59,21 +62,17 @@
                             </div>
 
                             <div class="form-group">
-                            <label for="image"></label>
-                                <input type="file" name="front" id="image" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id
+                            <label for=""></label>
+                                <input type="file" name="front"  accept=".jpg, .jpeg, .png" value="">Upload Front of School Id
                             </div>
 
                             <div class="form-group">
-                            <label for="image"></label>
-                                <input type="file" name="back" id="image" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id
+                            <label for=""></label>
+                                <input type="file" name="back"  accept=".jpg, .jpeg, .png" value="">Upload Back of School Id
                             </div>
                             
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <input type="submit" name="registerstudent_btn"  class="form-submit" value="Register"/>
                             </div>
                         </form>
                     </div>
@@ -88,8 +87,43 @@
 
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+    
+     <!-- SCRIPT FOR SWEET ALERT -->
+
+
+  
+
+
+<?php
+        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
+        {
+            ?>
+                <script>
+                swal({
+                title: "<?php echo $_SESSION['status']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
+                timer: 5000,
+                button: "Close",
+                }).then(
+                function () {},
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                    //console.log('I was closed by the timer')
+                    }
+                }
+                )
+                </script>
+                <?php
+                unset($_SESSION['status']);
+                unset($_SESSION['status_code']);
+        }
+                ?>
+
+</body>
 </html>

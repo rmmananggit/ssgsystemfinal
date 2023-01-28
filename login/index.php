@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+ <?php session_start(); ?>
     <div class="main">
 
         <!-- Sing in  Form -->
@@ -88,5 +88,5 @@
         }
                 ?>
                 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>

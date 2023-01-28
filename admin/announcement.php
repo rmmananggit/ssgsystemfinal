@@ -36,7 +36,6 @@ include('includes/header.php');
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
@@ -46,7 +45,6 @@ include('includes/header.php');
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
@@ -64,14 +62,23 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['announcement_id']; ?></td>
                                     <td><?= $row['announcement_title']; ?></td>
                                     <td><?= $row['announcement_body']; ?></td>
                                     <td><?= $row['announcement_publish']; ?></td>
                                     <td><?= $row['announcement_date']; ?></td>
                                     <td> 
-                                    <a href="#" class="btn btn-warning btn-sm"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                    
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ACTION
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+                                        <a class="dropdown-item" type="button" href="officer_account_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
+                                        <a class="dropdown-item" type="button">DELETE</a>
+                                        </div>
+                                        </div>         
+
                                     </td>
                                     </tr>
                                     <?php

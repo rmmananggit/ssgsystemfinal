@@ -88,11 +88,18 @@ include('includes/header.php');
                                         <td><?= $row['email']; ?></td>
                                         <td><?= $row['pos_name']; ?></td>
                                         <td><?= $row['user_status']; ?></td>
-                                        <td> <a href="student_view.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a>
-                                    
-                                    <a href="student_edit.php?id=<?=$row['user_id'];?>" class="btn btn-warning btn-sm"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                        <td> 
 
-                                    <a href="student_edit.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                        <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ACTION
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+                                        <a class="dropdown-item" type="button" href="officer_account_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
+                                        <a class="dropdown-item" type="button">DELETE</a>
+                                        </div>
+                                        </div>             
 
                                     </td>
                                     </tr>

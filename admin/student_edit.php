@@ -26,7 +26,7 @@ include('includes/header.php');
         <h4 class="mt-4">Students</h4>
         <ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item active">Students</li>
-            <li class="breadcrumb-item">View Student</li>
+            <li class="breadcrumb-item">Edit Student Information</li>
             
         </ol>
         <div class="row">
@@ -58,34 +58,34 @@ include('includes/header.php');
 
                             <div class="col-md-12 mb-3">
                                     <label for=""><strong>School I.D</strong></label>
-                                    <input required name="quantity" placeholder="Enter ID Number" value="<?= $user['id']; ?>" class="form-control">
+                                    <input required name="id" placeholder="Enter ID Number" value="<?= $user['id']; ?>" class="form-control">
                                 </div>
 
                                 <div class="col-md-4 mb-3 ">
                                     <label for=""><strong>First Name</strong></label>
-                                    <input required name="quantity" placeholder="Enter First Name" value="<?= $user['fname']; ?>" class="form-control">
+                                    <input required name="fname" placeholder="Enter First Name" value="<?= $user['fname']; ?>" class="form-control">
                                 </div>
 
 
 
                                 <div class="col-md-4 mb-3 ">
                                     <label for=""><strong>Middle Name</strong></label>
-                                    <input required name="quantity" placeholder="Enter Middle Name" value="<?= $user['mname']; ?>" class="form-control">
+                                    <input required name="mname" placeholder="Enter Middle Name" value="<?= $user['mname']; ?>" class="form-control">
                                 </div>
 
                                 <div class="col-md-4 mb-3 ">
                                     <label for=""><strong>Last Name</strong></label>
-                                    <input required name="quantity" placeholder="Enter Last Name" value="<?= $user['lname']; ?>" class="form-control">
+                                    <input required name="lname" placeholder="Enter Last Name" value="<?= $user['lname']; ?>" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-8 mb-3 ">
                                     <label for=""><strong>Email Address</strong></label>
-                                    <input required name="quantity" type="email" placeholder="Enter First Name" value="<?= $user['fname']; ?>" class="form-control">
+                                    <input required name="email" type="email" placeholder="Enter First Name" value="<?= $user['fname']; ?>" class="form-control">
                                 </div>
 
                                 <div class="col-md-4 mb-3 ">
                                     <label for=""><strong>Mobile Number</strong></label>
-                                    <input required name="quantity" placeholder="Enter Mobile Number" value="<?= $user['mobilenumber']; ?>" class="form-control">
+                                    <input required name="mobilenumber" placeholder="Enter Mobile Number" value="<?= $user['mobilenumber']; ?>" class="form-control">
                                 </div>
                                
                             </div>
