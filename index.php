@@ -78,10 +78,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
             <h4 class="title"><a href="">Mission</a></h4>
-            <p class="description"> The Charter of the school commits its educational efforts towards <br>
-   1.  The development of students as a whole   human being; <br>
-   2.  The development of Christian character for service to God and  people; and <br>
-   3.  Providing a venue for students and the community in the formation and development of moral, political, cultural, and economic values. To enhance the realization of the above mission,</p>
+            <p class="description"> Bestow Excellence Towards Holistic Empowered Learning</p>
           </div>
         </div>
 
@@ -89,7 +86,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-palette-line"></i></div>
             <h4 class="title"><a href="">Vision</a></h4>
-            <p class="description">JIMENEZ BETHEL INSTITUTE seeks a life of FAITH, LEARNING, and ACTION to develop people into becoming intellectually competent and honest, morally and ethically sensitive, andcreatively aware and responsive to the needs, aspiration, and the realization of a JUST, FREE, AND RESPONSIBLE SOCIAL ORDER.</p>
+            <p class="description">Fulfilled Academic Integrity Towards Holistic Growth</p>
           </div>
         </div>
 
@@ -97,10 +94,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-command-line"></i></div>
             <h4 class="title"><a href="">Goal</a></h4>
-            <p class="description">For the enhancement of the realization of the above EDUCATIONAL CREDO, Jimenez Bethel Institute will strongly pursue and work out – <br>
-    1.   A curriculum and co-curriculum program that foster development towards creative thinking, human dignity and responsibility. <br>
-   2.  Methodology of teaching, a system of learning and valuation that recognize the dignity of every person; train for the development of the capacity for critical thinking, and cultivate social responsibility and action guided by Christian values. <br>
-   3.  An administration, faculty, staff and students who are knowledgeable of the best thoughts and values of the Filipino and human kind and conversant with the  economic, political, social and cultural heritage in relation to realities of the Philippines society and life, in particular, and the world, in general.</p>
+            <p class="description">Acquired Christ-Centered Transformed Individual Obedience and Nobleness</p>
           </div>
         </div>
 
