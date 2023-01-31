@@ -24,41 +24,45 @@
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
 
-                        <form action="registercode.php" method="POST" enctype="multipart/form-data" >
+                        <form action="registercode.php" method="post" enctype="multipart/form-data" >
                         <div class="form-group">
     
-                                <label for="name"></label>
+                                <label for=""></label>
                                 <input type="text" name="id" required placeholder="Id Number"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
-                                <input type="text" name="fname" required placeholder="Your First Name"/>
+                                <label for=""></label>
+                                <input type="text" name="fname" required placeholder="First Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
-                                <input type="text" name="mname" required placeholder="Your Middle Name"/>
+                                <label for=""></label>
+                                <input type="text" name="mname" required placeholder="Middle Name (Typa N/A if not available)"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
-                                <input type="text" name="lname" required placeholder="Your Last Name"/>
+                                <label for=""></label>
+                                <input type="text" name="lname" required placeholder="Last Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="email"></label>
-                                <input type="email" name="email" required placeholder="Your Email"/>
+                                <label for=""></label>
+                                <input type="text" name="extname" required placeholder="Name Extension (Typa N/A if not available)"/>
                             </div>
                             <div class="form-group">
-                                <label for="pass"></label>
+                                <label for=""></label>
+                                <input type="email" name="email" required placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                                 <input type="password" name="password" required placeholder="Password"/>
                             </div>
 
                             <div class="form-group">
-                                <label for="pass"></label>
+                                <label for=""></label>
                                 <input type="password" name="confirm_password" required placeholder="Repeat your password"/>
                             </div>
 
                             <div class="form-group">
                                 <label for=""></label>
-                                <input type="text" name="mobilenumber" required placeholder="Mobile Number"/>
+                                <input type="text" name="phone" required placeholder="Mobile Number"/>
                             </div>
 
                             <div class="form-group">
@@ -72,7 +76,7 @@
                             </div>
                             
                             <div class="form-group form-button">
-                                <input type="submit" name="registerstudent_btn"  class="form-submit" value="Register"/>
+                                <input type="submit" name="registerstudent_btn"  class="form-submit"/>
                             </div>
                         </form>
                     </div>

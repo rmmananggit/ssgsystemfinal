@@ -24,7 +24,6 @@
                         <figure><img src="images/ssg.jpg" alt="sing up image"></figure>
                         <a href="studentregister.php" class="signup-image-link">Create Student Account</a>
                         <a href="parentregister.php" class="signup-image-link">Create Parent Account</a>
-                        <a href="parentregister.php" class="signup-image-link">Create Staff Account</a>
                     </div>
 
                     <div class="signin-form">

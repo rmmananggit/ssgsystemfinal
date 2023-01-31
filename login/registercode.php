@@ -5,16 +5,16 @@ include('../admin/config/dbcon.php');
 
 if(isset($_POST['registerstudent_btn']))
 {   
-$id = mysqli_real_escape_string($con, $_POST['id']);
-$fname = mysqli_real_escape_string($con, $_POST['fname']);
-$mname = mysqli_real_escape_string($con, $_POST['mname']);
-$lname = mysqli_real_escape_string($con, $_POST['lname']);
-$email = mysqli_real_escape_string($con, $_POST['email']);
-$password = mysqli_real_escape_string($con, $_POST['password']);
-$confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
-$mobilenumber = mysqli_real_escape_string($con, $_POST['mobilenumber']);
+  $id = $_POST['id'];
+  $fname = $_POST['fname'];
+  $mname = $_POST['mname'];
+  $lname = $_POST['lname'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirm_password = $_POST['confirm_password'];
+  $phone = $_POST['phone'];
 $user_type = 4;
-$user_status = 1;
+$user_status = 3;
 $fines = 0;
 $balance = 0;
 $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
@@ -33,7 +33,7 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
             exit(0);
         }
         else{
-          $query = "INSERT INTO `student`(`fname`, `mname`, `lname`, `email`, `password`, `mobilenumber`, `id`, `front`, `back`, `user_type`, `user_status`, `fines`, `balance`) VALUES ('$fname,'$mname','$lname','$email','$password','$mobilenumber','$id','$front','$back','$user_type','$user_status','$fines','$balance')";
+          $query = "INSERT INTO `student`(`fname`, `mname`, `lname`, `email`, `password`, `mobilenumber`, `id`, `front`, `back`, `user_type`, `user_status`, `fines`, `balance`) VALUES ('$fname','$mname','$lname','$email','$password','$phone','$id','$front','$back','$user_type','$user_status','$fines','$balance')";
             $query_run = mysqli_query($con, $query);
 
             if($query_run)
@@ -45,7 +45,10 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
             }
             else
             {
-
+              $_SESSION['status'] = "Someting went wrong!";
+              $_SESSION['status_code'] = "error";
+              header('Location: studentregister.php');
+                exit(0);
             }
         }
 
@@ -57,9 +60,12 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
       header('Location: studentregister.php');
         exit(0);
     }
-    
 }
-
+else
+{
+header("Location: studentregister.php");
+exit(0);
+}
 
 
 ?>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title></title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -21,22 +21,22 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Parent Sign Up!</h2>
                         <form method="POST" class="register-form" id="register-form">
                         <div class="form-group">
-                                <label for="name"></label>
+                                <label for=""></label>
                                 <input type="text" name="id" required placeholder="Id Number"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
+                                <label for=""></label>
                                 <input type="text" name="fname" required placeholder="Your First Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
+                                <label for=""></label>
                                 <input type="text" name="mname" required placeholder="Your Middle Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="name"></label>
+                                <label for=""></label>
                                 <input type="text" name="lname" required placeholder="Your Last Name"/>
                             </div>
                             <div class="form-group">
@@ -53,13 +53,18 @@
                             </div>
 
                             <div class="form-group">
-                            <label for="image"></label>
-                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id
+                                <label for=""></label>
+                                <input type="text" name="fullname" required placeholder="Enter Full Name of you Son/Daughter"/>
                             </div>
 
                             <div class="form-group">
                             <label for="image"></label>
-                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id
+                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id of your son/daughter
+                            </div>
+
+                            <div class="form-group">
+                            <label for="image"></label>
+                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id of your son/daughter
                             </div>
                             
                             <div class="form-group">
