@@ -74,7 +74,7 @@ include('includes/header.php');
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
                                         <td><?= $row['email']; ?></td>
                                         <td><?= $row['balance']; ?></td>
-                                        <td><a type="button" class="btn btn-outline-primary btn-sm" href="penaltyfee_pay.php?id=<?=$row['user_id'];?>">Pay Fines</a></td>
+                                        <td><a type="button" class="btn btn-outline-primary btn-sm" href="penaltyfee_pay.php?id=<?=$row['user_id'];?>">Collect Fines</a></td>
                                     </tr>
                                     <?php
                                 }

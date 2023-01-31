@@ -8,6 +8,15 @@ if(!isset($_SESSION['auth']))
     header("Location: ../login.php");
     exit(0);
 }
+else
+{
+    if ($_SESSION['auth_role'] != "5")
+    {
+        $_SESSION['message'] = "You are not authorized as Parent";
+        header("Location: ../login.php");
+        exit(0);
+    }
+}
 
 ?>
 

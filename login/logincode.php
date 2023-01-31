@@ -41,19 +41,19 @@ if(isset($_POST['login_btn']))
         elseif( $_SESSION['auth_role'] == '5' &&  $_SESSION['pos_role'] == '4')
         {
             $_SESSION['message'] = "Welcome Parent!";
-            header("Location: parent/index.php");
+            header("Location: ../parent/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '2')
         {
             $_SESSION['message'] = "Welcome Secretary!";
-            header("Location: secretary/index.php");
+            header("Location: ../secretary/index.php");
             exit(0);
         }
-        elseif( $_SESSION['auth_role'] == '5')
+        elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '3')
         {
             $_SESSION['message'] = "Welcome!";
-            header("Location: treasurer/index.php");
+            header("Location: ../treasurer/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '6')

@@ -23,87 +23,82 @@ include('includes/header.php');
 
 
 <div class="container-fluid px-4">
-        <h1 class="mt-4">Student</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-            <li class="breadcrumb-item active">Student</li>
-        </ol>
+                        <ol class="breadcrumb mb-4 mt-3">
+                            <li class="breadcrumb-item">Dashboard</li>
+                            <li class="breadcrumb-item ">Fines</li>
+                            <li class="breadcrumb-item active">View Student Fines</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                               List of Students Account
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Student I.D</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Balance</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Student I.D</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Balance</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                            $query = "SELECT
+                            student.*
+                        FROM
+                            student
+                        WHERE
+                            student.user_status = 1 AND
+                            student.balance != 0
+                        ";
+                            $query_run = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $row)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?= $row['id']; ?></td>
+                                        <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
+                                        <td><?= $row['email']; ?></td>
+                                        <td><?= $row['balance']; ?></td>
+                                        <td><a type="button" class="btn btn-outline-primary btn-sm" href="penaltyfee_pay.php?id=<?=$row['user_id'];?>">Pay Fines</a></td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                            ?>
+                                <tr>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-        <?php include('message.php'); ?>
-        
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                List of Students
-            </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>Student I.D</th>
-                            <th>First Name</th>
-                            <th>Middle Name</th>
-                            <th>Last Name</th>
-                            <th>TOTAL BALANCE</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                        <th>Student I.D</th>
-                        <th>First Name</th>
-                        <th>Middle Name</th>
-                        <th>Last Name</th>
-                        <th>TOTAL BALANCE</th>
-                        <th>ACTION</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                    <?php
-            $query = "SELECT
-            users.`user_id`,
-            users.`school-id`, 
-            users.first_name, 
-            users.middle_name, 
-            users.last_name, 
-            users.balance
-          FROM
-            users
-          WHERE
-            users.user_role_id = 2 AND
-            users.user_status_id = 1 AND
-            users.balance > 0";
-            $query_run = mysqli_query($con, $query);
-            if(mysqli_num_rows($query_run) > 0)
-            {
-                foreach($query_run as $row)
-                {
-                    ?>
-                    <tr>
-                        <td><?= $row['school-id']; ?></td>
-                        <td><?= $row['first_name']; ?></td>
-                        <td><?= $row['middle_name']; ?></td>
-                        <td><?= $row['last_name']; ?></td>
-                        <td><i class="fa-sharp fa-solid fa-peso-sign"></i><?= $row['balance']; ?></td>
-                        <td> <a href="payfines.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-hand-holding-dollar"></i></td>
-                    </tr>
-                    <?php
-                }
-            }
-            else
-            {
-            ?>
-                <tr>
-                    <td colspan="6">No Record Found</td>
-                </tr>
-            <?php
-            }
-            ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+
 
 
 <?php 

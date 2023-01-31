@@ -1,5 +1,147 @@
 <?php
 include('authentication.php');
+?>
+
+<?php
+if(isset($_POST['update_account']))
+{
+
+    $user_id= $_POST['user_id'];
+    $fname= $_POST['fname'];
+    $mname= $_POST['mname'];
+    $lname= $_POST['lname'];
+    $email= $_POST['email'];
+    $password= $_POST['password'];
+    $position = $_POST['position'];
+    $status = $_POST['status'];
+
+    $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
+    $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
+
+    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`front`='$front',`back`='$back' WHERE `user_id`='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Account Update Succesfully";
+        $_SESSION['status_code'] = "success";
+        header('Location: index.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something is wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: settings.php');
+        exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['announcement_delete']))
+{
+    $user_id= $_POST['announcement_delete'];
+
+    $query = "DELETE FROM announcement WHERE announcement_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "The announcement has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: announcement.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: announcement.php');
+      exit(0);
+    }
+}
+?>
+
+
+
+
+
+<?php
+
+if(isset($_POST['update_announcement']))
+{
+
+    $id = $_POST['announcement_id'];
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $publish = $_POST['publish'];
+    $date = $_POST['date'];
+
+    $query = "UPDATE `announcement` SET `announcement_title`='$title]',`announcement_body`='$body',`announcement_publish`='$publish',`announcement_date`='$date' WHERE announcement_id = '$id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Announcement Updated!";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+      }
+
+}
+
+?>
+
+
+
+<?php
+if(isset($_POST['logout_btn']))
+{
+    // session_destroy();
+    unset( $_SESSION['auth']);
+    unset( $_SESSION['auth_role']);
+    unset( $_SESSION['auth_user']);
+
+    $_SESSION['status'] = "Logout Successfully";
+    $_SESSION['status_code'] = "success";
+    header("Location: ../login/index.php");
+    exit(0);
+}
+?>
+
+<?php
+if(isset($_POST['add_ann']))
+{
+
+
+
+
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $publish = $_POST['publish'];
+    $date = $_POST['date'];
+
+    $query = "INSERT INTO `announcement`(`announcement_title`, `announcement_body`, `announcement_publish`, `announcement_date`) VALUES ('$title','$body','$publish','$date')";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Announcement Added!";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+      }
+
+}
+
 
 
 if(isset($_POST['payfines_btn']))
@@ -47,9 +189,5 @@ if(isset($_POST['payfines_btn']))
         }
     
     }
-}else{
-    $_SESSION['message'] = "Error! Something went wrong!";
-    header('Location: fines.php');
-    exit(0);
 }
 ?>

@@ -3,6 +3,25 @@ include('authentication.php');
 include('includes/header.php');
 ?>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        </button>
+      </div>
+      <div class="modal-body"> Are you sure you want to logout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form action="code.php" method="POST">
+          <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item">Dashboard</li>
@@ -18,8 +37,6 @@ include('includes/header.php');
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Year</th>
-                                            <th>Section</th>
                                             <th>Fines</th>
                                             <th>Balance</th>
                                         </tr>
@@ -27,8 +44,6 @@ include('includes/header.php');
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Year</th>
-                                            <th>Section</th>
                                             <th>Fines</th>
                                             <th>Balance</th>
                                         </tr>
@@ -39,8 +54,6 @@ include('includes/header.php');
                             student.fname, 
                             student.mname, 
                             student.lname, 
-                            student.`year`, 
-                            student.section, 
                             student.fines, 
                             student.balance
                         FROM
@@ -54,8 +67,6 @@ include('includes/header.php');
                                     <tr>
 
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
-                                        <td><?= $row['year']; ?></td>
-                                        <td><?= $row['section']; ?></td>
                                         <td><?= $row['fines']; ?></td>
                                         <td><?= $row['balance']; ?></td>
                                     </tr>

@@ -12,7 +12,6 @@ include('includes/header.php');
       <div class="modal-body"> Are you sure you want to logout?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form action="code.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
@@ -30,7 +29,7 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            <button class="btn btn-primary" href="officer_account_add.php"><i class="fa fa-plus"></i> Add Officer Account</button>
+                            <a  type="button" class="btn btn-primary" href="officer_account_add.php"><i class="fa fa-plus"></i> Add Officer Account</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -97,7 +96,9 @@ include('includes/header.php');
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                         <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
                                         <a class="dropdown-item" type="button" href="officer_account_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
-                                        <a class="dropdown-item" type="button">DELETE</a>
+                                        <form action="code.php" method="post">
+                                        <button class="dropdown-item" type="submit" name="officer_delete"  value="<?=$row['user_id'];?>" >DELETE</button>
+                                        </form>
                                         </div>
                                         </div>             
 

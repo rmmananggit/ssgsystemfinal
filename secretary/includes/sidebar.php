@@ -8,24 +8,30 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading">Manage</div>
+                            <div class="sb-sidenav-menu-heading">MANAGE</div>
+                           
+
+                            <a class="nav-link" href="penaltyfee_view.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
+                               Penalty Fee
+                            </a>
+
                           
+
                             <a class="nav-link" href="announcement.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-scroll"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-bullhorn"></i></div>
                                 Announcement
                             </a>
 
-                            <a class="nav-link" href="penaltyfee_view.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-scroll"></i></div>
-                                Student Penalty Fee
-                            </a>
+
+
                         
                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Parent
+                        Secretary
                     </div>
                 </nav>
             </div>

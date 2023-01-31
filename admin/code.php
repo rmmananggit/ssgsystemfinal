@@ -67,25 +67,63 @@ if(isset($_POST['update_student']))
 ?>
 
 
-
 <?php
-if(isset($_POST['user_delete']))
+if(isset($_POST['update_officer']))
 {
-    $user_id= $_POST['user_delete'];
+    $user_id= $_POST['user_id'];
+    $fname= $_POST['fname'];
+    $mname= $_POST['mname'];
+    $lname= $_POST['lname'];
+    $email= $_POST['email'];
+    $password= $_POST['password'];
+    $position = $_POST['position'];
+    $status = $_POST['status'];
+    $front = $_FILES['front'];
+    $back = $_FILES['back'];
+    $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
+    $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
 
-    $query = "DELETE FROM users WHERE id='$user_id'";
+    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`front`='$front',`back`='$back' WHERE `user_id`='$user_id'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)
     {
-        $_SESSION['message'] = "User Deleted Successfully";
-        header('Location: view_register.php');
+        $_SESSION['status'] = "Officer Update Succesfully";
+        $_SESSION['status_code'] = "success";
+        header('Location: officer_account.php');
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Something went wrong!";
-        header('Location: view_register.php');
+        $_SESSION['status'] = "Something is wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: officer_account.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['officer_delete']))
+{
+    $user_id= $_POST['officer_delete'];
+
+    $query = "DELETE FROM user WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Officer Deleted Successfully";
+        $_SESSION['status_code'] = "success";
+        header('Location: officer_account.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: officer_account.php.php');
         exit(0);
     }
 }
