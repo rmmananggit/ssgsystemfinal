@@ -61,18 +61,18 @@ include('includes/header.php');
                             `user`.mname, 
                             `user`.lname, 
                             `user`.email, 
-                            staff_position.pos_name, 
-                            user_status.user_status
+                            user_status.user_status, 
+                            position.pos_name
                           FROM
                             `user`
-                            INNER JOIN
-                            staff_position
-                            ON 
-                              `user`.pos_name = staff_position.pos_id
                             INNER JOIN
                             user_status
                             ON 
                               `user`.user_status = user_status.user_status_id
+                            INNER JOIN
+                            position
+                            ON 
+                              `user`.pos_name = position.pos_id
                           WHERE
                             `user`.user_type = 5 AND
                             `user`.user_status = 1";
