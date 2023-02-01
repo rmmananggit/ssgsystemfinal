@@ -276,5 +276,86 @@ if(isset($_POST['payfines_btn']))
 
 
 
+<?php
+if(isset($_POST['add_ann']))
+{
+
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $publish = $_POST['publish'];
+    $date = $_POST['date'];
+
+    $query = "INSERT INTO `announcement`(`announcement_title`, `announcement_body`, `announcement_publish`, `announcement_date`) VALUES ('$title','$body','$publish','$date')";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Announcement Added!";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+      }
+
+}
+
+?>
+
+<?php
+if(isset($_POST['update_announcement']))
+{
+
+    $id = $_POST['announcement_id'];
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $publish = $_POST['publish'];
+    $date = $_POST['date'];
+
+    $query = "UPDATE `announcement` SET `announcement_title`='$title]',`announcement_body`='$body',`announcement_publish`='$publish',`announcement_date`='$date' WHERE announcement_id = '$id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Announcement Updated!";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+      }
+
+}
+
+?>
+
+
+<?php
+if(isset($_POST['announcement_delete']))
+{
+    $user_id= $_POST['announcement_delete'];
+
+    $query = "DELETE FROM announcement WHERE announcement_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "The announcement has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: announcement.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: announcement.php');
+      exit(0);
+    }
+}
+?>
 
 

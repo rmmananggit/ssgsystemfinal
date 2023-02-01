@@ -29,13 +29,13 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                List of Announcement
+                            <a  type="button" class="btn btn-primary" href="announcement_add.php"><i class="fa fa-bullhorn"></i> Add Announcement</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
@@ -45,6 +45,7 @@ include('includes/header.php');
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
@@ -62,6 +63,7 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
+                                    <td><?= $row['announcement_id']; ?></td>
                                     <td><?= $row['announcement_title']; ?></td>
                                     <td><?= $row['announcement_body']; ?></td>
                                     <td><?= $row['announcement_publish']; ?></td>
@@ -73,9 +75,11 @@ include('includes/header.php');
                                         ACTION
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
-                                        <a class="dropdown-item" type="button" href="officer_account_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
-                                        <a class="dropdown-item" type="button">DELETE</a>
+                                        <a class="dropdown-item" type="button" href="announcement_edit.php?id=<?=$row['announcement_id'];?>">UPDATE</a>
+                                        <form action="code.php" method="POST">  
+                                        <button type="submit" name="announcement_delete" value="<?=$row['announcement_id']; ?>" class="dropdown-item"> DELETE
+                                            </button> 
+                                        </form> 
                                         </div>
                                         </div>         
 
@@ -88,7 +92,7 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                    <td colspan="6">No Record Found</td>
+                                <td colspan="6">No Record Found</td>
                                 </tr>
                             <?php
                             }
