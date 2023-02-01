@@ -56,25 +56,26 @@ include('includes/header.php');
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            ssgsystem.`user`.user_id, 
-                            ssgsystem.`user`.fname, 
-                            ssgsystem.`user`.mname, 
-                            ssgsystem.`user`.lname, 
-                            ssgsystem.`user`.email, 
-                            ssgsystem.staff_position.pos_name, 
-                            ssgsystem.user_status.user_status
+                            `user`.user_id, 
+                            `user`.fname, 
+                            `user`.mname, 
+                            `user`.lname, 
+                            `user`.email, 
+                            staff_position.pos_name, 
+                            user_status.user_status
                         FROM
-                            ssgsystem.`user`
+                            `user`
                             INNER JOIN
-                            ssgsystem.staff_position
+                            staff_position
                             ON 
-                                ssgsystem.`user`.pos_name = ssgsystem.staff_position.pos_id
+                                `user`.pos_name = staff_position.pos_id
                             INNER JOIN
-                            ssgsystem.user_status
+                            user_status
                             ON 
-                                ssgsystem.`user`.user_status = ssgsystem.user_status.user_status_id
+                                `user`.user_status = user_status.user_status_id
                         WHERE
-                            ssgsystem.`user`.user_type = 1";
+                            `user`.user_type = 1 AND
+                            `user`.user_status = 1";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {

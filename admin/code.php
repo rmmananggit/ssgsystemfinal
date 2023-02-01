@@ -35,6 +35,41 @@ if(isset($_POST['add_expense']))
 ?>
 
 
+<?php //addfines
+if(isset($_POST['addfinesbtn']))
+{
+    $user_id= $_POST['user_id'];
+    $fines = $_POST['addfines'];
+   
+    $q1= "SELECT fines, balance FROM student WHERE user_id = '$user_id' ";
+    $q1_run = $con->query($q1);
+    $data = $q1_run->fetch_assoc();
+    $fee = $data['fines'];
+    $bal = $data['balance'];
+
+    $newfee = $fines + $fee;
+    $newbal = $fines + $bal;
+
+    $query = "UPDATE `student` SET `fines`='$newfee',`balance`='$newbal' WHERE `user_id` = '$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Fee Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: fines.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something is wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: fines.php');
+        exit(0);
+    }
+}
+?>
+
 <?php
 if(isset($_POST['update_student']))
 {

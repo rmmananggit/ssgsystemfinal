@@ -12,7 +12,6 @@ include('includes/header.php');
       <div class="modal-body"> Are you sure you want to logout?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form action="code.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
@@ -25,44 +24,36 @@ include('includes/header.php');
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item ">Fines</li>
-                            <li class="breadcrumb-item active">Add Student Fines</li>
+                            <li class="breadcrumb-item active">My Payments</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               List of Students Account
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Student I.D</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Balance</th>
-                                            <th>ACTION</th>
+                                            <th>Id</th>
+                                            <th>Reference Number</th>
+                                            <th>Receipt</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Student I.D</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Balance</th>
-                                            <th>ACTION</th>
+                                            <th>Id</th>
+                                            <th>Reference Number</th>
+                                            <th>Receipt</th>
+                                            <th>Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                            $query = "SELECT
-                            student.*
-                        FROM
-                            student
-                        WHERE
-                            student.user_status = 1 AND
-                            student.balance != 0
-                        ";
+
+                            if(isset($_SESSION['auth_user'])) 
+                            $currentUSER = $_SESSION['auth_user']['user_id'];
+
+                            $query = "SELECT `id`, `referencenumber`, `picture`, `date` FROM `payment` WHERE student = $currentUSER";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -71,10 +62,14 @@ include('includes/header.php');
                                     ?>
                                     <tr>
                                         <td><?= $row['id']; ?></td>
-                                        <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['balance']; ?></td>
-                                        <td><a type="button" class="btn btn-outline-primary btn-sm" href="fines_add.php?id=<?=$row['user_id'];?>">Add Fines</a></td>
+                                        <td><?= $row['referencenumber']; ?></td>
+                                        <td> <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['picture']).'" 
+                                        alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                                        </td>
+                                        <td><?= $row['date']; ?></td>
+                                      
                                     </tr>
                                     <?php
                                 }
@@ -83,11 +78,7 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                    <td>No Record Found</td>
-                                    <td>No Record Found</td>
-                                    <td>No Record Found</td>
-                                    <td>No Record Found</td>
-                                    <td>No Record Found</td>
+                                    <td colspan="6">No Record Found</td>
                                 </tr>
                             <?php
                             }

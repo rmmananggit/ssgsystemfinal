@@ -12,7 +12,6 @@ include('includes/header.php');
       <div class="modal-body"> Are you sure you want to logout?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form action="code.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
@@ -25,57 +24,49 @@ include('includes/header.php');
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item ">Account</li>
-                            <li class="breadcrumb-item active">Parent Account</li>
+                            <li class="breadcrumb-item ">Payment History</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               List of Parent Account
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Status</th>
-                                            <th>ACTION</th>
+                                            <th>Full Name</th>
+                                            <th>Paid</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th>ACTION</th>
+                                            <th>Full Name</th>
+                                            <th>Paid</th>
+                                            <th>Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
+
+if(isset($_SESSION['auth_user'])) 
+$currentUSER = $_SESSION['auth_user']['user_id'];
+
                             $query = "SELECT
-                            `user`.user_id, 
-                            `user`.fname, 
-                            `user`.mname, 
-                            `user`.lname, 
-                            `user`.email, 
-                            staff_position.pos_name, 
-                            user_status.user_status
-                          FROM
-                            `user`
+                            student.fname, 
+                            student.mname, 
+                            student.lname, 
+                            fines_transaction.fines_fee, 
+                            fines_transaction.fines_date
+                        FROM
+                            fines_transaction
                             INNER JOIN
-                            staff_position
+                            student
                             ON 
-                              `user`.pos_name = staff_position.pos_id
-                            INNER JOIN
-                            user_status
-                            ON 
-                              `user`.user_status = user_status.user_status_id
-                          WHERE
-                            `user`.user_type = 5 AND
-                            `user`.user_status = 1";
+                                fines_transaction.fines_id = student.user_id
+                        WHERE
+                            fines_transaction.fines_id = '$currentUSER'
+                        ORDER BY
+                            fines_transaction.fines_date DESC";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -83,23 +74,10 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                        <td><?= $row['user_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['user_status']; ?></td>
-                                        <td>
-                                        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    ACTION
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
-    <a class="dropdown-item" type="button" href="student_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
-    <a class="dropdown-item" type="button">DELETE</a>
-  </div>
-</div>             
+                                        <td><?= $row['fines_fee']; ?></td>
+                                        <td><?= $row['fines_date']; ?></td>
 
-                                        </td>
                                     </tr>
                                     <?php
                                 }

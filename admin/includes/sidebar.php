@@ -24,12 +24,12 @@
 
                             <a class="nav-link" href="penaltyfee_view.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
-                               Penalty Fee
+                               Collect Fee
                             </a>
 
                             <a class="nav-link" href="fines.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
-                                Fines
+                               Fines
                             </a>
 
                             <a class="nav-link" href="announcement.php">
@@ -45,6 +45,11 @@
                             <a class="nav-link" href="qr.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
                                 QR
+                            </a>
+
+                            <a class="nav-link" href="paymenthistory.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-clock"></i></div>
+                               Payment History
                             </a>
 
                             <a class="nav-link" href="generate_report.php">

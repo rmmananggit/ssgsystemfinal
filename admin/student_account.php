@@ -31,7 +31,7 @@ include('includes/header.php');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                               List of Students Account
+                               List of Active Students Account
 
                           
                             </div>
@@ -65,14 +65,15 @@ include('includes/header.php');
                             student.email, 
                             student.`password`, 
                             student.id, 
-                            user_status.user_status, 
-                            student.fines
-                        FROM
+                            user_status.user_status
+                          FROM
                             student
                             INNER JOIN
                             user_status
                             ON 
-                                student.user_status = user_status.user_status_id";
+                              student.user_status = user_status.user_status_id
+                          WHERE
+                            student.user_status = 1";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
