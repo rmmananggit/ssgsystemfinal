@@ -42,6 +42,11 @@
                                 Liquidation Report
                             </a>
 
+                            <a class="nav-link" href="qr.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
+                                QR
+                            </a>
+
                             <a class="nav-link" href="generate_report.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-print"></i></div>
                                 Generate Report

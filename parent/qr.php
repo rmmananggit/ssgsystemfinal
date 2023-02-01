@@ -29,7 +29,7 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            <a  type="button" class="btn btn-primary" href="qr_add.php"><i class="fa fa-qrcode"></i> Add QR</a>
+                           <h3>View QR</h3>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -39,7 +39,7 @@ include('includes/header.php');
                                             <th>Name</th>
                                             <th>QR</th>
                                             <th>Date Added</th>
-                                            <th>Action</th>
+                                        
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -48,7 +48,7 @@ include('includes/header.php');
                                             <th>Name</th>
                                             <th>QR</th>
                                             <th>Date Added</th>
-                                            <th>Action</th>
+                                        
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -68,20 +68,7 @@ include('includes/header.php');
                                         alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
                                         ?></td>
                                          <td><?= $row['date']; ?></td>
-                                    <td> 
-                                    
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        ACTION
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" type="button" href="announcement_edit.php?id=<?=$row['announcement_id'];?>">UPDATE</a>
-                                        <form action="code.php" method="POST">  
-                                        <button type="submit" name="announcement_delete" value="<?=$row['announcement_id']; ?>" class="dropdown-item"> DELETE
-                                            </button> 
-                                        </form> 
-                                        </div>
-                                        </div>         
+                    
 
                                     </td>
                                     </tr>
