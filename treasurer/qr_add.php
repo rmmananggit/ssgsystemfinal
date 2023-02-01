@@ -62,7 +62,7 @@ include('includes/header.php');
                 
 
                      <div class="text-right">
-                                <a href="announcement.php" class="btn btn-danger">Back</a>
+                                <a href="qr.php" class="btn btn-danger">Back</a>
                                 <button type="submit" name="add_qr" class="btn btn-primary">Save</button>
                                 </div>
                 </form>
