@@ -20,6 +20,12 @@
                                 Liquidation Report
                             </a>
                             
+                            
+                            <a class="nav-link" href="qr.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
+                                QR
+                            </a>
+
                             <a class="nav-link" href="announcement.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-bullhorn"></i></div>
                                 Announcement

@@ -64,6 +64,60 @@ if(isset($_POST['announcement_delete']))
 
 
 
+<?php
+if(isset($_POST['add_qr']))
+{
+    $name= $_POST['name'];
+    $date= $_POST['date'];
+    $qr = addslashes(file_get_contents($_FILES["qr"]['tmp_name']));
+
+
+    $query = "INSERT INTO `qrcode`(`name`, `fee_qr`, `date`) VALUES ('$name','$qr','$date')";
+
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "QR Added!";
+      $_SESSION['status_code'] = "success";
+      header('Location: qr.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: qr.php');
+      exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['announcement_delete']))
+{
+    $user_id= $_POST['announcement_delete'];
+
+    $query = "DELETE FROM announcement WHERE announcement_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "The announcement has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: announcement.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: announcement.php');
+      exit(0);
+    }
+}
+?>
+
+
+
 
 
 <?php

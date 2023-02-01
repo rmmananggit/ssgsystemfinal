@@ -40,26 +40,23 @@ if(isset($_POST['login_btn']))
         }
         elseif( $_SESSION['auth_role'] == '5' &&  $_SESSION['pos_role'] == '4')
         {
-            $_SESSION['message'] = "Welcome Parent!";
+            $_SESSION['status'] = "Welcome Parent!";
+            $_SESSION['status_code'] = "success";
             header("Location: ../parent/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '2')
         {
-            $_SESSION['message'] = "Welcome Secretary!";
+            $_SESSION['status'] = "Welcome Secretary!";
+            $_SESSION['status_code'] = "success";
             header("Location: ../secretary/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '3')
         {
-            $_SESSION['message'] = "Welcome!";
+            $_SESSION['status'] = "Welcome Treasurer!";
+            $_SESSION['status_code'] = "success";
             header("Location: ../treasurer/index.php");
-            exit(0);
-        }
-        elseif( $_SESSION['auth_role'] == '6')
-        {
-            $_SESSION['message'] = "Welcome!";
-            header("Location: parent/index.php");
             exit(0);
         }
     }
