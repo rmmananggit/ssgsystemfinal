@@ -56,7 +56,7 @@ include('includes/header.php');
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Total Staff Account <br> 
+                                    <div class="card-body">Total Officer Account <br> 
 
 
                                     <?php
@@ -220,9 +220,10 @@ include('includes/header.php');
                                         <td> 
                                         <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Change Status
+    ACTION
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+  <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
     <form action="code.php" method="post">
     <button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
     <button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
@@ -257,6 +258,7 @@ include('includes/header.php');
 
 
                     <div class="container-fluid px-4">
+
 
                     <h2 class="mb-3"><center>List of Pending and Archived Officer Account</center></h2>
 
@@ -323,10 +325,11 @@ Officer Account
                 <td> 
                 <div class="dropdown">
 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Change Status
+ACTION
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 <form action="code.php" method="post">
+<a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
 <button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
 <button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
 </form>
@@ -427,9 +430,10 @@ foreach($query_run as $row)
 <td> 
 <div class="dropdown">
 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Change Status
+ACTION
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<a class="dropdown-item" type="button" href="parent_view.php?id=<?=$row['user_id'];?>">VIEW</a>
 <form action="code.php" method="post">
 <button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
 <button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
