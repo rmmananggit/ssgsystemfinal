@@ -29,7 +29,7 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                           <h3>View QR</h3>
+                           <h3>View QR for Payment</h3>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

@@ -67,6 +67,15 @@ include('includes/header.php');
                                 <input type="date" name="date" class="form-control" value="<?=$user['date'];?>">
                                 </div>
                     
+                                <div class="col-md-12 mb-3">
+                                    <label for=""><strong>Position</strong></label>
+                                    <select name="position" required class="form-control">
+                                        <option value="">--Status--</option>
+                                        <option value="1" <?= $user['status'] == 'Active' ? 'selected' :'' ?> >Active</option>
+                                        <option value="3" <?= $user['status'] == 'Archived' ? 'selected' :'' ?> >Archived</option>
+                                    </select>
+                                </div>
+
 
                                 
                     <div class="col-md-4 mb-3 text-center">

@@ -29,7 +29,7 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                           <h3>QR Payment</h3>
+                           <h3>QR for Student Payment</h3>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -38,6 +38,7 @@ include('includes/header.php');
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>QR</th>
+                                            <th>Status</th>
                                             <th>Date Added</th>
                                         
                                         </tr>
@@ -47,13 +48,14 @@ include('includes/header.php');
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>QR</th>
+                                            <th>Status</th>
                                             <th>Date Added</th>
                                         
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                            $query = "SELECT * FROM `qrcode`";
+                            $query = "SELECT * FROM `qrcode` WHERE `status` = 'Active'";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -67,6 +69,76 @@ include('includes/header.php');
                                         echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['fee_qr']).'" 
                                         alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
                                         ?></td>
+                                         <td><?= $row['status']; ?></td>
+                                         <td><?= $row['date']; ?></td>
+                    
+
+                                    </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                            ?>
+                                <tr>
+                                <td colspan="6">No Record Found</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                        <h2 class="mt-5"><center>Archived QR</center></h2>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                           <h3>QR for Student Payment</h3>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimpleQR">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>QR</th>
+                                            <th>Status</th>
+                                            <th>Date Added</th>
+                                        
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>QR</th>
+                                            <th>Status</th>
+                                            <th>Date Added</th>
+                                        
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                            $query = "SELECT * FROM `qrcode` WHERE `status` = 'Archived'";
+                            $query_run = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $row)
+                                {
+                                    ?>
+                                    <tr>
+                                    <td><?= $row['id']; ?></td>
+                                    <td><?= $row['name']; ?></td>
+                                    <td>  <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['fee_qr']).'" 
+                                        alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
+                                         <td><?= $row['status']; ?></td>
                                          <td><?= $row['date']; ?></td>
                     
 

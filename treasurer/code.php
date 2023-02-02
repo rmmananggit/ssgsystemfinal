@@ -70,9 +70,9 @@ if(isset($_POST['add_qr']))
     $name= $_POST['name'];
     $date= $_POST['date'];
     $qr = addslashes(file_get_contents($_FILES["qr"]['tmp_name']));
+    $status = "Active";
 
-
-    $query = "INSERT INTO `qrcode`(`name`, `fee_qr`, `date`) VALUES ('$name','$qr','$date')";
+    $query = "INSERT INTO `qrcode`(`name`, `fee_qr`, `date`,`status`) VALUES ('$name','$qr','$date','$status')";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)
@@ -127,12 +127,13 @@ if(isset($_POST['update_qr']))
 if(isset($_POST['qr_delete']))
 {
     $id= $_POST['qr_delete'];
+    $status = "Archived";
 
-    $query = "DELETE FROM qrcode WHERE id ='$id' ";
+    $query = "UPDATE `qrcode` SET`status`='$status' WHERE id ='$id'";
     $query_run = mysqli_query($con, $query);
     if($query_run)
     {
-      $_SESSION['status'] = "Qr code deleted successfully";
+      $_SESSION['status'] = "Qr code archived";
       $_SESSION['status_code'] = "success";
       header('Location: qr.php');
       exit(0);

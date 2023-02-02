@@ -17,11 +17,7 @@
                                 View Student Fines
                             </a>
 
-                            
-                            <a class="nav-link" href="qr.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
-                                View Student Fines
-                            </a>
+                         
 
 
                          

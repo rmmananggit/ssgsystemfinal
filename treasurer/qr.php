@@ -29,7 +29,7 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            <a  type="button" class="btn btn-primary" href="qr_add.php"><i class="fa fa-qrcode"></i> Add QR Payment</a>
+                            <a  type="button" class="btn btn-primary" href="qr_add.php"><i class="fa fa-qrcode"></i> Add QR for Payment</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -39,6 +39,7 @@ include('includes/header.php');
                                             <th>Name</th>
                                             <th>QR</th>
                                             <th>Date Added</th>
+                                            <th>Status</th>
                                             <th>ACTION</th>
                                         
                                         </tr>
@@ -49,12 +50,13 @@ include('includes/header.php');
                                             <th>Name</th>
                                             <th>QR</th>
                                             <th>Date Added</th>
+                                            <th>Status</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                            $query = "SELECT * FROM `qrcode`";
+                            $query = "SELECT * FROM `qrcode` WHERE `status` = 'Active' ";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -69,6 +71,7 @@ include('includes/header.php');
                                         alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
                                         ?></td>
                                     <td><?= $row['date']; ?></td>
+                                    <td><?= $row['status']; ?></td>
 
                                     <td>
                                     <div class="dropdown">
