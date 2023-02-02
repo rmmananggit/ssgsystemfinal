@@ -95,8 +95,9 @@ include('includes/header.php');
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
     <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
     <a class="dropdown-item" type="button" href="student_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
-    <a class="dropdown-item" type="button">DELETE</a>
-  </div>
+    <form action="code.php" method="post">
+    <button class="dropdown-item" type="submit" name="parent_delete"  value="<?=$row['user_id'];?>" >ARCHIVE</button>
+    </form>
 </div>             
 
                                         </td>

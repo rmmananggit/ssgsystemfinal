@@ -98,7 +98,7 @@ include('includes/header.php');
                                         <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
                                         <a class="dropdown-item" type="button" href="officer_account_edit.php?id=<?=$row['user_id'];?>">UPDATE</a>
                                         <form action="code.php" method="post">
-                                        <button class="dropdown-item" type="submit" name="officer_delete"  value="<?=$row['user_id'];?>" >DELETE</button>
+                                        <button class="dropdown-item" type="submit" name="officer_delete"  value="<?=$row['user_id'];?>" >ARCHIVE</button>
                                         </form>
                                         </div>
                                         </div>             

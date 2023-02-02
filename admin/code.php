@@ -143,13 +143,14 @@ if(isset($_POST['update_officer']))
 if(isset($_POST['officer_delete']))
 {
     $user_id= $_POST['officer_delete'];
+    $u_status = 2;
 
-    $query = "DELETE FROM user WHERE user_id='$user_id'";
+    $query = "UPDATE `user` SET `user_status`='$u_status' WHERE user_id='$user_id'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)
     {
-        $_SESSION['status'] = "Officer Deleted Successfully";
+        $_SESSION['status'] = "Officer Archived";
         $_SESSION['status_code'] = "success";
         header('Location: officer_account.php');
         exit(0);
@@ -159,6 +160,61 @@ if(isset($_POST['officer_delete']))
         $_SESSION['status'] = "Something went wrong!";
         $_SESSION['status_code'] = "error";
         header('Location: officer_account.php.php');
+        exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['parent_delete']))
+{
+    $user_id= $_POST['parent_delete'];
+    $u_status = 2;
+
+    $query = "UPDATE `user` SET `user_status`='$u_status' WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Parent Archived";
+        $_SESSION['status_code'] = "success";
+        header('Location: parent_account.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: parent_account.php.php');
+        exit(0);
+    }
+}
+?>
+
+
+
+
+<?php
+if(isset($_POST['student_delete']))
+{
+    $user_id= $_POST['student_delete'];
+    $u_status = 2;
+
+    $query = "UPDATE `student` SET `user_status`='$u_status' WHERE `user_id`='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Student Archived";
+        $_SESSION['status_code'] = "success";
+        header('Location: student_account.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: student_account.php.php');
         exit(0);
     }
 }
