@@ -29,7 +29,7 @@ include('includes/header.php');
                         </ol>
 
                         
-                        <h1 class="mt-2"><center>STUDENTS PAID VIA QR</center></h1>
+                        <h1 class="mt-2"><center>STUDENTS PAID VIA GCASH</center></h1>
                         <div class="card mb-4">
                             <div class="card-header">
                           <h4>Payment History of Students </h4>
