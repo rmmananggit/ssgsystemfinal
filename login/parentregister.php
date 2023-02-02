@@ -22,7 +22,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Parent Sign Up!</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form action="parentcode.php" method="post" enctype="multipart/form-data" >
                         <div class="form-group">
                                 <label for=""></label>
                                 <input type="text" name="id" required placeholder="Id Number"/>
@@ -45,26 +45,21 @@
                             </div>
                             <div class="form-group">
                                 <label for="pass"></label>
-                                <input type="password" name="pass" required placeholder="Password"/>
+                                <input type="password" name="password" required placeholder="Password"/>
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"></label>
-                                <input type="password" name="re_pass" required placeholder="Repeat your password"/>
-                            </div>
+                                <input type="password" name="confirm_password" required placeholder="Repeat your password"/>
+</div>
 
                             <div class="form-group">
-                                <label for=""></label>
-                                <input type="text" name="fullname" required placeholder="Enter Full Name of you Son/Daughter"/>
+                            <label for="image"></label>
+                                <input type="file" name="front" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id of your son/daughter
                             </div>
 
                             <div class="form-group">
                             <label for="image"></label>
-                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id of your son/daughter
-                            </div>
-
-                            <div class="form-group">
-                            <label for="image"></label>
-                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id of your son/daughter
+                                <input type="file" name="back" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id of your son/daughter
                             </div>
                             
                             <div class="form-group">
@@ -72,7 +67,7 @@
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <input type="submit" name="signup" class="form-submit" value="Register"/>
                             </div>
                         </form>
                     </div>
@@ -88,6 +83,46 @@
     </div>
 
     <!-- JS -->
+
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+    
+     <!-- SCRIPT FOR SWEET ALERT -->
+
+
+  
+
+
+<?php
+        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
+        {
+            ?>
+                <script>
+                swal({
+                title: "<?php echo $_SESSION['status']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
+                timer: 5000,
+                button: "Close",
+                }).then(
+                function () {},
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                    //console.log('I was closed by the timer')
+                    }
+                }
+                )
+                </script>
+                <?php
+                unset($_SESSION['status']);
+                unset($_SESSION['status_code']);
+        }
+                ?>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
