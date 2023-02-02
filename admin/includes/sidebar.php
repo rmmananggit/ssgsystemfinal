@@ -47,10 +47,19 @@
                                 QR
                             </a>
 
-                            <a class="nav-link" href="paymenthistory.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-clock"></i></div>
-                               Payment History
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
+                                Payment History
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="paymenthistory.php">Via Cash</a>
+                                    <a class="nav-link" href="cash.php">Gcash</a>
+                                </nav>
+                            </div>
+
+
 
                             <a class="nav-link" href="generate_report.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-print"></i></div>

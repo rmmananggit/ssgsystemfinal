@@ -20,16 +20,17 @@ include('includes/header.php');
   </div>
 </div>
 
+
+
 <div class="container-fluid px-4">
 
-<ol class="breadcrumb mb-4 mt-3">
+                        <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item">Payment History</li>
-                            <li class="breadcrumb-item active">Via Cash</li>
+                            <li class="breadcrumb-item active">Payment History</li>
                         </ol>
 
-
-                        <h1 class="mt-2"><center>STUDENTS PAID BY CASH</center></h1>
+                        
+                        <h1 class="mt-2"><center>STUDENTS PAID VIA GCASH</center></h1>
                         <div class="card mb-4 mt-4">
                             <div class="card-header">
                           <h4>Payment History of Students </h4>
@@ -39,33 +40,36 @@ include('includes/header.php');
                                         <tr>
                                             <th>Id</th>
                                             <th>Name</th>
-                                            <th>Paid</th>
-                                            <th>Date Paid</th>
+                                            <th>Reference Number</th>
+                                            <th>Receipt</th>
+                                            <th>Date</th>
                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Id</th>
+                                        <th>Id</th>
                                             <th>Name</th>
-                                            <th>Paid</th>
-                                            <th>Date Paid</th>
+                                            <th>Reference Number</th>
+                                            <th>Receipt</th>
+                                            <th>Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            fines_transaction.fines_id,
+                            payment.id,
                             student.fname,
                             student.mname,
                             student.lname,
-                            fines_transaction.fines_fee,
-                            fines_transaction.fines_date
+                            payment.referencenumber,
+                            payment.picture,
+                            payment.date
                             FROM
-                            fines_transaction
-                            INNER JOIN student ON fines_transaction.fines_id = student.user_id
+                            payment
+                            INNER JOIN student ON payment.student = student.user_id
                             ORDER BY
-                            fines_transaction.fines_date DESC
+                            payment.date DESC
                             ";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
@@ -74,10 +78,17 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                        <td><?= $row['fines_id']; ?></td>
+                                        <td><?= $row['id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
-                                        <td><?= $row['fines_fee']; ?></td>
-                                        <td><?= $row['fines_date']; ?></td>
+                                        <td><?= $row['referencenumber']; ?></td>
+                                        <td>
+                                        <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['picture']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+
+                                        </td>
+                                        <td><?= $row['date']; ?></td>
                                         
                                     
                                     </td>
@@ -100,8 +111,8 @@ include('includes/header.php');
                         </div>
                     </div>
 
-</div>
 
+</div>
 
 <?php 
 include('includes/footer.php');
