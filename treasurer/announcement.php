@@ -29,7 +29,6 @@ include('includes/header.php');
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            <a  type="button" class="btn btn-primary" href="announcement_add.php"><i class="fa fa-bullhorn"></i> Add Announcement</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -40,7 +39,7 @@ include('includes/header.php');
                                             <th>Message</th>
                                             <th>Author</th>
                                             <th>Date</th>
-                                            <th>Action</th>
+                                   
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -50,7 +49,7 @@ include('includes/header.php');
                                             <th>Message</th>
                                             <th>Author</th>
                                             <th>Date</th>
-                                            <th>Action</th>
+                                   
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -68,22 +67,7 @@ include('includes/header.php');
                                     <td><?= $row['announcement_body']; ?></td>
                                     <td><?= $row['announcement_publish']; ?></td>
                                     <td><?= $row['announcement_date']; ?></td>
-                                    <td> 
-                                    
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        ACTION
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" type="button" href="announcement_edit.php?id=<?=$row['announcement_id'];?>">UPDATE</a>
-                                        <form action="code.php" method="POST">  
-                                        <button type="submit" name="announcement_delete" value="<?=$row['announcement_id']; ?>" class="dropdown-item"> DELETE
-                                            </button> 
-                                        </form> 
-                                        </div>
-                                        </div>         
-
-                                    </td>
+                                  
                                     </tr>
                                     <?php
                                 }
