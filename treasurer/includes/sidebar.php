@@ -6,7 +6,7 @@
                             <div class="sb-sidenav-menu-heading"></div>
                             <div class="sb-sidenav-menu-heading">MANAGE</div>
 
-                            <a class="nav-link" href="penaltyfee_view.php">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
                                Penalty Fee
                             </a>

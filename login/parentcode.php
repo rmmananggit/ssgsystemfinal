@@ -14,7 +14,7 @@ if(isset($_POST['signup']))
   $confirm_password = $_POST['confirm_password'];
 
 $user_type = 5;
-$position = 5;
+$position = 4;
 $user_status = 3;
 
 $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
