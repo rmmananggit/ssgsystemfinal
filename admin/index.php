@@ -157,6 +157,312 @@ include('includes/header.php');
                     </div>
 
 
+                    <div class="container-fluid px-4">
+
+                    <h2 class="mb-3"><center>List of Pending and Archived Students Account</center></h2>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                               Students Account
+
+                          
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Student I.D</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Student I.D</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                            $query = "SELECT
+                            student.user_id, 
+                            student.fname, 
+                            student.mname, 
+                            student.lname, 
+                            student.email, 
+                            student.`password`, 
+                            student.id, 
+                            user_status.user_status
+                          FROM
+                            student
+                            INNER JOIN
+                            user_status
+                            ON 
+                              student.user_status = user_status.user_status_id
+                          WHERE
+                            student.user_status != 1";
+                            $query_run = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $row)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?= $row['id']; ?></td>
+                                        <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
+                                        <td><?= $row['email']; ?></td>
+                                        <td><?= $row['user_status']; ?></td>
+                                        <td> 
+                                        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Change Status
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <form action="code.php" method="post">
+    <button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
+    <button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
+    </form>
+  </div>
+</div>                                 
+
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                            ?>
+                                <tr>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="container-fluid px-4">
+
+                    <h2 class="mb-3"><center>List of Pending and Archived Officer Account</center></h2>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+Officer Account
+
+  
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>Action</th>
+                </tr>
+            </tfoot>
+            <tbody>
+            <?php
+    $query = "SELECT
+    `user`.user_id,
+    `user`.fname,
+    `user`.mname,
+    `user`.lname,
+    `user`.email,
+    user_status.user_status,
+    position.pos_name
+    FROM
+    user_status
+    INNER JOIN `user` ON `user`.user_status = user_status.user_status_id
+    INNER JOIN position ON `user`.pos_name = position.pos_id
+    WHERE
+    `user`.user_type = 1 AND
+    `user`.user_status != 1
+    ";
+    $query_run = mysqli_query($con, $query);
+    if(mysqli_num_rows($query_run) > 0)
+    {
+        foreach($query_run as $row)
+        {
+            ?>
+            <tr>
+                <td><?= $row['user_id']; ?></td>
+                <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
+                <td><?= $row['email']; ?></td>
+                <td><?= $row['pos_name']; ?></td>
+                <td><?= $row['user_status']; ?></td>
+
+                <td> 
+                <div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Change Status
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<form action="code.php" method="post">
+<button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
+<button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
+</form>
+</div>
+</div>                                 
+
+                </td>
+            </tr>
+            <?php
+        }
+    }
+    else
+    {
+    ?>
+        <tr>
+            <td>No Record Found</td>
+            <td>No Record Found</td>
+            <td>No Record Found</td>
+            <td>No Record Found</td>
+            <td>No Record Found</td>
+        </tr>
+    <?php
+    }
+    ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="container-fluid px-4">
+
+<h2 class="mb-3"><center>List of Pending and Archived Parent Account</center></h2>
+
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-table me-1"></i>
+Officer Account
+
+
+</div>
+<div class="card-body">
+<table id="datatablesSimple2">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Position</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Position</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</tfoot>
+<tbody>
+<?php
+$query = "SELECT
+`user`.user_id,
+`user`.fname,
+`user`.mname,
+`user`.lname,
+`user`.email,
+user_status.user_status,
+position.pos_name
+FROM
+user_status
+INNER JOIN `user` ON `user`.user_status = user_status.user_status_id
+INNER JOIN position ON `user`.pos_name = position.pos_id
+WHERE
+`user`.user_type = 5 AND
+`user`.user_status != 1
+";
+$query_run = mysqli_query($con, $query);
+if(mysqli_num_rows($query_run) > 0)
+{
+foreach($query_run as $row)
+{
+?>
+<tr>
+<td><?= $row['user_id']; ?></td>
+<td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?> </td>
+<td><?= $row['email']; ?></td>
+<td><?= $row['pos_name']; ?></td>
+<td><?= $row['user_status']; ?></td>
+
+<td> 
+<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Change Status
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<form action="code.php" method="post">
+<button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
+<button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
+</form>
+</div>
+</div>                                 
+
+</td>
+</tr>
+<?php
+}
+}
+else
+{
+?>
+<tr>
+<td>No Record Found</td>
+<td>No Record Found</td>
+<td>No Record Found</td>
+<td>No Record Found</td>
+<td>No Record Found</td>
+</tr>
+<?php
+}
+?>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+                    
 
 
 

@@ -140,6 +140,61 @@ if(isset($_POST['update_officer']))
 
 
 <?php
+if(isset($_POST['student_active']))
+{
+    $user_id= $_POST['student_active'];
+    $u_status = 1;
+
+    $query = "UPDATE `student` SET `user_status`='$u_status' WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Status change to Active";
+        $_SESSION['status_code'] = "success";
+        header('Location: index.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: index.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['student_archived']))
+{
+    $user_id= $_POST['student_archived'];
+    $u_status = 2;
+
+    $query = "UPDATE `student` SET `user_status`='$u_status' WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Status change to Active";
+        $_SESSION['status_code'] = "success";
+        header('Location: index.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: index.php');
+        exit(0);
+    }
+}
+?>
+
+
+
+<?php
 if(isset($_POST['officer_delete']))
 {
     $user_id= $_POST['officer_delete'];

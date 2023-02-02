@@ -60,8 +60,7 @@ include('includes/header.php');
                         FROM
                             student
                         WHERE
-                            student.user_status = 1 AND
-                            student.balance != 0
+                            student.user_status = 1
                         ";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
