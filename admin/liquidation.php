@@ -100,6 +100,10 @@ include('includes/header.php');
                             ?>
                                 <tr>
                                     <td colspan="5">No Record Found</td>
+                                    <td colspan="5">No Record Found</td>
+                                    <td colspan="5">No Record Found</td>
+                                    <td colspan="5">No Record Found</td>
+                                    <td colspan="5">No Record Found</td>
                                 </tr>
                             <?php
                             }

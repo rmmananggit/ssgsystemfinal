@@ -55,6 +55,9 @@ include('includes/header.php');
                                     </tfoot>
                                     <tbody>
                                     <?php
+
+$user_id = $_SESSION['auth_user']['user_id'];
+
                             $query = "SELECT
                             `user`.user_id, 
                             `user`.fname, 
@@ -75,7 +78,8 @@ include('includes/header.php');
                                 `user`.pos_name = position.pos_id
                         WHERE
                             `user`.user_type = 1 AND
-                            `user`.user_status = 1";
+                            `user`.user_status = 1 AND
+                            `user`.user_id != '1'";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -112,7 +116,12 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                    <td colspan="6">No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
                                 </tr>
                             <?php
                             }

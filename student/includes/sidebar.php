@@ -28,6 +28,11 @@
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-clock"></i></div>
                                My Payment History
                             </a>
+
+                            <a class="nav-link" href="gcash.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
+                               Payment with Gcash
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

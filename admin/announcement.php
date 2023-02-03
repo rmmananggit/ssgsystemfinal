@@ -39,6 +39,7 @@ include('includes/header.php');
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
+                                            <th>Status</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -49,13 +50,14 @@ include('includes/header.php');
                                             <th>Title</th>
                                             <th>Message</th>
                                             <th>Author</th>
+                                            <th>Status</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                            $query = "SELECT * FROM `announcement`";
+                            $query = "SELECT * FROM `announcement` WHERE `status` = 'Active'";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -67,6 +69,7 @@ include('includes/header.php');
                                     <td><?= $row['announcement_title']; ?></td>
                                     <td><?= $row['announcement_body']; ?></td>
                                     <td><?= $row['announcement_publish']; ?></td>
+                                    <td><?= $row['status']; ?></td>
                                     <td><?= $row['announcement_date']; ?></td>
                                     <td> 
                                     
@@ -77,7 +80,7 @@ include('includes/header.php');
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                         <a class="dropdown-item" type="button" href="announcement_edit.php?id=<?=$row['announcement_id'];?>">UPDATE</a>
                                         <form action="code.php" method="POST">  
-                                        <button type="submit" name="announcement_delete" value="<?=$row['announcement_id']; ?>" class="dropdown-item"> DELETE
+                                        <button type="submit" name="announcement_delete" value="<?=$row['announcement_id']; ?>" class="dropdown-item"> ARCHIVED
                                             </button> 
                                         </form> 
                                         </div>
@@ -92,7 +95,12 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                <td colspan="6">No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
                                 </tr>
                             <?php
                             }

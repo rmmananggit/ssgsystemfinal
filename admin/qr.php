@@ -82,7 +82,11 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                <td colspan="6">No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
                                 </tr>
                             <?php
                             }
@@ -151,7 +155,11 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                <td colspan="6">No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
+                                <td>No Record Found</td>
                                 </tr>
                             <?php
                             }
