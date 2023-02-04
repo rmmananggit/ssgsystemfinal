@@ -29,7 +29,7 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
         {
           $_SESSION['status'] = "Email already exist!";
           $_SESSION['status_code'] = "error";
-          header("Location: studentregister.php");
+          header("Location: farmer_add.php");
             exit(0);
         }
         else{
