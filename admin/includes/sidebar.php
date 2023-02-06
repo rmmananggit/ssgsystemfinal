@@ -22,15 +22,6 @@
                                 </nav>
                             </div>
 
-                            <a class="nav-link" href="penaltyfee_view.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
-                               Collect Fee
-                            </a>
-
-                            <a class="nav-link" href="fines.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
-                               Fines
-                            </a>
 
                             <a class="nav-link" href="announcement.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-bullhorn"></i></div>
@@ -39,12 +30,7 @@
 
                             <a class="nav-link" href="liquidation.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-sheet-plastic"></i></div>
-                                Liquidation Report
-                            </a>
-
-                            <a class="nav-link" href="qr.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
-                                QR
+                                SSG Expenses
                             </a>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">

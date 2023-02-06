@@ -350,6 +350,7 @@ ACTION
             <td>No Record Found</td>
             <td>No Record Found</td>
             <td>No Record Found</td>
+            <td>No Record Found</td>
         </tr>
     <?php
     }
@@ -450,6 +451,7 @@ else
 {
 ?>
 <tr>
+<td>No Record Found</td>
 <td>No Record Found</td>
 <td>No Record Found</td>
 <td>No Record Found</td>

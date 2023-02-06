@@ -2,7 +2,6 @@
 session_start();
 include('../admin/config/dbcon.php');
 
-
 if(isset($_POST['signup']))
 {   
   $id = $_POST['id'];

@@ -73,7 +73,7 @@ if(isset($_POST['login_btn']))
                 $_SESSION['status'] = "Your account is archived or pending";
             $_SESSION['status_code'] = "error";
             header("Location: ../login/index.php");
-            exit(0);
+            exit(0); 
             }
            
 
@@ -97,26 +97,3 @@ if(isset($_POST['login_btn']))
 
 ?>
 
-<!-- 
-
-elseif( $_SESSION['auth_role'] == '5' &&  $_SESSION['pos_role'] == '4')
-        {
-            $_SESSION['status'] = "Welcome Parent!";
-            $_SESSION['status_code'] = "success";
-            header("Location: ../parent/index.php");
-            exit(0);
-        }
-        elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '2')
-        {
-            $_SESSION['status'] = "Welcome Secretary!";
-            $_SESSION['status_code'] = "success";
-            header("Location: ../secretary/index.php");
-            exit(0);
-        }
-        elseif( $_SESSION['auth_role'] == '1' &&  $_SESSION['pos_role'] == '3')
-        {
-            $_SESSION['status'] = "Welcome Treasurer!";
-            $_SESSION['status_code'] = "success";
-            header("Location: ../treasurer/index.php");
-            exit(0);
-        } -->

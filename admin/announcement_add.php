@@ -49,7 +49,7 @@ include('includes/header.php');
                     </div>
 
                     <div class="col-md-4 mb-3">
-                                    <label for="">Send by:</label>
+                                    <label for="">Announced by:</label>
                                     <input required type="text" Placeholder="Enter Name" name="publish" class="form-control">
                     </div>
 

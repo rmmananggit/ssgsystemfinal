@@ -40,7 +40,7 @@ if(isset($_POST['update_account']))
     {
         $_SESSION['status'] = "Account Update Succesfully";
         $_SESSION['status_code'] = "success";
-        header('Location: /parent.php');
+        header('Location: index.php');
         exit(0);
     }
     else

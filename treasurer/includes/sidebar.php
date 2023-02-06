@@ -13,13 +13,13 @@
 
                             <a class="nav-link" href="liquidation.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-sheet-plastic"></i></div>
-                                Liquidation Report
+                               SSG Expenses
                             </a>
                             
                             
                             <a class="nav-link" href="qr.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
-                                QR
+                                Generate QR
                             </a>
 
                             <a class="nav-link" href="announcement.php">

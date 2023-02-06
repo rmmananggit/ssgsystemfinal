@@ -62,14 +62,10 @@ include('includes/header.php');
                     
                     <div class="col-md-6 mb-3">
                                     <label for="">Email</label>
-                                    <input required type="email" Placeholder="Enter User Name" name="email" class="form-control">
+                                    <input required type="email" Placeholder="Enter Active Email" name="email" class="form-control">
                     </div>
 
                     
-                    <div class="col-md-6 mb-3">
-                                    <label for="">Password</label>
-                                    <input required type="password" Placeholder="Enter Password" name="password" class="form-control">
-                    </div>
 
                     <div class="col-md-6 mb-3">
                                     <label for="">Role</label>
@@ -80,9 +76,7 @@ include('includes/header.php');
                                     </select>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                    
-                    </div>
+                 
 
                     <div class="col-md-6">
                                 <label for="front">ID Picture(Front): </label>

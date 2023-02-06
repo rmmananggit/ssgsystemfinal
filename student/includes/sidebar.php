@@ -10,29 +10,19 @@
                                 Dashboard
                             </a>
 
-                        
-                        
-
 
                             <a class="nav-link" href="penaltyfee.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
-                                Penalty Payment
+                                Pay with Gcash
                             </a>
 
                             <a class="nav-link" href="myreceipt.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
-                               My Receipt
+                               Payment History
                             </a>
 
-                            <a class="nav-link" href="paymenthistory.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-clock"></i></div>
-                               My Payment History
-                            </a>
-
-                            <a class="nav-link" href="gcash.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-qrcode"></i></div>
-                               Payment with Gcash
-                            </a>
+                       
+                          
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

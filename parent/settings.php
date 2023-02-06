@@ -59,8 +59,7 @@
                                     <input required type="password" Placeholder="Enter Password" name="password" value="<?= $user['password']; ?>" class="form-control">
                     </div>
 
-
-
+                                   
                     <div class="col-md-6">
                                 <label for="front">ID Picture(Front): </label>
                                 <input type="file" name="front" id="front" accept=".jpg, .jpeg, .png" value="">
@@ -69,10 +68,24 @@
                     
 
                     <div class="col-md-6">
-                                <label for="back">ID Picture(Front): </label>
+                                <label for="back">ID Picture(Back): </label>
                                 <input type="file" name="back" id="back" accept=".jpg, .jpeg, .png" value="">
                     </div>
 
+
+                    <div class="col-md-6">
+                    <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['front']).'" 
+                                        alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                    </div>
+
+                    <div class="col-md-6">
+                    <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['back']).'" 
+                                        alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                    </div>
 
                      </div>   
 

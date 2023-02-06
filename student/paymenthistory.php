@@ -86,7 +86,9 @@ $currentUSER = $_SESSION['auth_user']['user_id'];
                             {
                             ?>
                                 <tr>
-                                    <td colspan="6">No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
                                 </tr>
                             <?php
                             }

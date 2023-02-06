@@ -25,7 +25,7 @@ include('includes/header.php');
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Liquidation Report</li>
+                            <li class="breadcrumb-item active">SSG Expenses</li>
                         </ol>
 
             <div class="container">
@@ -99,7 +99,12 @@ include('includes/header.php');
                             {
                             ?>
                                 <tr>
-                                    <td colspan="5">No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    <td>No Record Found</td>
+                                    
                                 </tr>
                             <?php
                             }
