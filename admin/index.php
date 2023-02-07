@@ -223,10 +223,9 @@ include('includes/header.php');
     ACTION
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-  <a class="dropdown-item" type="button" href="student_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+  <a class="dropdown-item" type="button" href="indexstudentview.php?id=<?=$row['user_id'];?>">VIEW</a>
     <form action="code.php" method="post">
     <button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
-    <button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
     </form>
   </div>
 </div>                                 
@@ -330,8 +329,7 @@ ACTION
 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 <form action="code.php" method="post">
 <a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
-<button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
-<button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
+<button class="dropdown-item" type="submit" name="officer_active"  value="<?=$row['user_id'];?>" >Active</button>
 </form>
 </div>
 </div>                                 
@@ -371,7 +369,7 @@ ACTION
 <div class="card mb-4">
 <div class="card-header">
 <i class="fas fa-table me-1"></i>
-Officer Account
+Parent Account
 
 
 </div>
@@ -434,10 +432,9 @@ foreach($query_run as $row)
 ACTION
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-<a class="dropdown-item" type="button" href="parent_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+<a class="dropdown-item" type="button" href="indexparentview.php?id=<?=$row['user_id'];?>">VIEW</a>
 <form action="code.php" method="post">
-<button class="dropdown-item" type="submit" name="student_active"  value="<?=$row['user_id'];?>" >Active</button>
-<button class="dropdown-item" type="submit" name="student_archived"  value="<?=$row['user_id'];?>" >Archived</button>
+<button class="dropdown-item" type="submit" name="parent_active"  value="<?=$row['user_id'];?>" >Active</button>
 </form>
 </div>
 </div>                                 

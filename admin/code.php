@@ -450,18 +450,17 @@ if(isset($_POST['student_active']))
 
 
 
-
-if(isset($_POST['student_archived']))
+if(isset($_POST['parent_active']))
 {
-    $user_id= $_POST['student_archived'];
-    $u_status = 2;
+    $user_id= $_POST['parent_active'];
+    $status = 1;
 
-    $query = "UPDATE `student` SET `user_status`='$u_status' WHERE user_id='$user_id'";
+    $query = "UPDATE `user` SET `user_status`='$status' WHERE user_id='$user_id'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)
     {
-        $_SESSION['status'] = "Status change to Active";
+        $_SESSION['status'] = "Parent Status change to active";
         $_SESSION['status_code'] = "success";
         header('Location: index.php');
         exit(0);
@@ -475,6 +474,55 @@ if(isset($_POST['student_archived']))
     }
 }
 
+
+if(isset($_POST['parent_active']))
+{
+    $user_id= $_POST['parent_active'];
+    $status = 1;
+
+    $query = "UPDATE `user` SET `user_status`='$status' WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Parent Account Status change to active";
+        $_SESSION['status_code'] = "success";
+        header('Location: index.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: index.php');
+        exit(0);
+    }
+}
+
+
+if(isset($_POST['officer_active']))
+{
+    $user_id= $_POST['officer_active'];
+    $status01 = 1;
+
+    $query = "UPDATE `user` SET `user_status`='$status01' WHERE user_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+        $_SESSION['status'] = "Officer Account Status change to active";
+        $_SESSION['status_code'] = "success";
+        header('Location: index.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: index.php');
+        exit(0);
+    }
+}
 
 
 
