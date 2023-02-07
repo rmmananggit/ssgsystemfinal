@@ -23,10 +23,7 @@
                     <div class="signup-form">
                         <h2 class="form-title">Parent Sign Up!</h2>
                         <form action="parentcode.php" method="post" enctype="multipart/form-data" >
-                        <div class="form-group">
-                                <label for=""></label>
-                                <input type="text" name="id" required placeholder="Id Number"/>
-                            </div>
+                       
                             <div class="form-group">
                                 <label for=""></label>
                                 <input type="text" name="fname" required placeholder="Your First Name"/>
@@ -50,7 +47,11 @@
                             <div class="form-group">
                                 <label for="re-pass"></label>
                                 <input type="password" name="confirm_password" required placeholder="Repeat your password"/>
-</div>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                                <input type="text" name="studentid" required placeholder="Id Number of Son/Daughter"/>
+                            </div>
 
                             <div class="form-group">
                             <label for="image"></label>
@@ -63,7 +64,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <input type="checkbox" required name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">

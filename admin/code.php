@@ -54,12 +54,6 @@ if(isset($_POST['add_expense']))
         exit(0);
       }
 
-}else
-{
-    $_SESSION['status'] = "Something went wrong!";
-    $_SESSION['status_code'] = "error";
-    header('Location: liquidation.php');
-    exit(0);
 }
 
 
@@ -170,11 +164,7 @@ if(isset($_POST["add_officer"])){
         header('Location: manage_product.php');
     }
   }
-}else
-{
-    
 }
-
 
 
 
@@ -258,13 +248,6 @@ if(isset($_POST['add_ann']))
       }
 
 }
-else{
-    $_SESSION['status'] = "Something went wrong!";
-    $_SESSION['status_code'] = "error";
-    header('Location: announcement.php');
-    exit(0);
-}
-
 
 
 
@@ -296,14 +279,7 @@ if(isset($_POST['add_expense']))
         exit(0);
       }
 
-}else
-{
-    $_SESSION['status'] = "Something went wrong!";
-    $_SESSION['status_code'] = "error";
-    header('Location: liquidation.php');
-    exit(0);
 }
-
 
 
 if(isset($_POST['addfinesbtn']))
@@ -665,10 +641,6 @@ if(isset($_POST['payfines_btn']))
         }
     
     }
-}else{
-    $_SESSION['message'] = "Error! Something went wrong!";
-    header('Location: fines.php');
-    exit(0);
 }
 
 

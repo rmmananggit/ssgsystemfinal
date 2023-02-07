@@ -42,10 +42,7 @@
                                 <label for=""></label>
                                 <input type="text" name="lname" required placeholder="Last Name"/>
                             </div>
-                            <div class="form-group">
-                                <label for=""></label>
-                                <input type="text" name="extname" required placeholder="Name Extension (Typa N/A if not available)"/>
-                            </div>
+                          
                             <div class="form-group">
                                 <label for=""></label>
                                 <input type="email" name="email" required placeholder="Email"/>

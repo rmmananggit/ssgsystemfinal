@@ -15,6 +15,7 @@ if(isset($_POST['registerstudent_btn']))
   $phone = $_POST['phone'];
 $user_type = 4;
 $user_status = 3;
+$pos_name = 5;
 $fines = 0;
 $balance = 0;
 $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
@@ -33,7 +34,7 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
             exit(0);
         }
         else{
-          $query = "INSERT INTO `student`(`fname`, `mname`, `lname`, `email`, `password`, `mobilenumber`, `id`, `front`, `back`, `user_type`, `user_status`, `fines`, `balance`) VALUES ('$fname','$mname','$lname','$email','$password','$phone','$id','$front','$back','$user_type','$user_status','$fines','$balance')";
+          $query = "INSERT INTO `student`(`fname`, `mname`, `lname`, `email`, `password`, `mobilenumber`, `id`, `front`, `back`, `user_type`, `user_status`, `pos_name`, `fines`, `balance`) VALUES ('$fname','$mname','$lname','$email','$password','$phone','$id','$front','$back','$user_type','$user_status','$pos_name','$fines','$balance')";
             $query_run = mysqli_query($con, $query);
 
             if($query_run)
