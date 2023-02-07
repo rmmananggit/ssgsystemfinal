@@ -12,6 +12,7 @@ include('includes/header.php');
       <div class="modal-body"> Are you sure you want to logout?
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form action="code.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
@@ -19,7 +20,6 @@ include('includes/header.php');
     </div>
   </div>
 </div>
-
 
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">

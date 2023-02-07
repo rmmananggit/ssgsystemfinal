@@ -39,15 +39,7 @@
                                 </nav>
                             </div>
                             
-                            <a class="nav-link" href="paymenthistory.php">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-clock"></i></div>
-                                Liquidation Report
-                            </a>
-                            
-
-
-
-
+                           
 
 
                         
