@@ -71,10 +71,15 @@
                             <label for=""></label>
                                 <input type="file" name="back"  accept=".jpg, .jpeg, .png" value="">Upload Back of School Id
                             </div>
+                            <div class="form-group">
+                                <input type="checkbox" required name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="studentac.php" class="term-service">Terms of service</a></label>
+                            </div>
                             
                             <div class="form-group form-button">
                                 <input type="submit" name="registerstudent_btn"  class="form-submit"/>
                             </div>
+                            
                         </form>
                     </div>
                     <div class="signup-image">
