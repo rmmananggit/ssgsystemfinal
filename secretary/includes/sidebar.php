@@ -4,14 +4,10 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
                             <div class="sb-sidenav-menu-heading">MANAGE</div>
                            
 
-                            <a class="nav-link" href="penaltyfee_view.php">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
                                Penalty Fee
                             </a>

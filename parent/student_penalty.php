@@ -50,6 +50,9 @@ include('includes/header.php');
                                     </tfoot>
                                     <tbody>
                                     <?php
+
+
+
                             $query = "SELECT
                             student.fname, 
                             student.mname, 

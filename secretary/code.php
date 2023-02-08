@@ -176,7 +176,7 @@ if(isset($_POST['payfines_btn']))
             {
                 $_SESSION['status']="Successfully paid fines";
                 $_SESSION['status_code'] = "success"; 
-                header('Location: penaltyfee_view.php');
+                header('Location: index.php');
                 exit(0);
             }
         }

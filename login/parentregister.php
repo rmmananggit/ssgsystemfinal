@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>SSG</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -55,12 +55,12 @@
 
                             <div class="form-group">
                             <label for="image"></label>
-                                <input type="file" name="front" accept=".jpg, .jpeg, .png" value="">Upload Front of School Id of your son/daughter
+                                <input type="file" name="front" required accept=".jpg, .jpeg, .png" value="">Upload Front of School Id of your son/daughter
                             </div>
 
                             <div class="form-group">
                             <label for="image"></label>
-                                <input type="file" name="back" accept=".jpg, .jpeg, .png" value="">Upload Back of School Id of your son/daughter
+                                <input type="file" name="back" required accept=".jpg, .jpeg, .png" value="">Upload Back of School Id of your son/daughter
                             </div>
                             
                             <div class="form-group">

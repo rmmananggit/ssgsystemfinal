@@ -55,15 +55,10 @@ $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
     else
     {
       $_SESSION['status'] = "Password does not match!";
-      $_SESSION['status_code'] = "success";
-      header('Location: studentregister.php');
+      $_SESSION['status_code'] = "error";
+      header('Location: parentregister.php');
         exit(0);
     }
-}
-else
-{
-header("Location: studentregister.php");
-exit(0);
 }
 
 

@@ -9,6 +9,113 @@ require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
 
+//add officer account
+if(isset($_POST["add_officer"])){
+    $front = $_FILES['front'];
+    $back = $_FILES['back'];
+  
+    $fileName = $front['name'];
+    $fileTmpname = $front['tmp_name'];
+    $fileSize = $front['size'];
+    $fileError = $front['error'];
+  
+    $fileExt = explode('.',$fileName);
+    $fileActExt = strtolower(end($fileExt));
+    $allowed = array('jpg','jpeg','png');
+  
+    $fileName1 = $back['name'];
+    $fileTmpname1 = $back['tmp_name'];
+    $fileSize1 = $back['size'];
+    $fileError1 = $back['error'];
+  
+    $fileExt1 = explode('.',$fileName1);
+    $fileActExt1 = strtolower(end($fileExt1));
+    $allowed1 = array('jpg','jpeg','png');
+  
+    $email = $_POST['email'];
+  
+    $checkemail = "SELECT email FROM user WHERE email='$email'";
+    $checkemail_run = mysqli_query($con,$checkemail);
+  
+    if(mysqli_num_rows($checkemail_run) > 0)
+    {
+      $_SESSION['status'] = "Email already exist!";
+      $_SESSION['status_code'] = "error";
+      header("Location: officer_account.php");
+        exit(0);
+    }
+    else{
+      if(in_array($fileActExt, $allowed)){
+          if($fileError === 0){
+              if($fileSize < 50000000){
+                $fname = $_POST['fname'];
+                $mname = $_POST['mname'];
+                $lname = $_POST['lname'];
+                $email = $_POST['email'];
+                $password = uniqid();
+                $position = $_POST['role_as'];
+                $code = 0;
+                $studentid = $_POST['studentid'];
+                $user_type = 1;
+                $status = 1;
+                $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
+                $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
+      
+                $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `front`, `back`, `user_type`, `pos_name`, `user_status`,`student_id`,`code`) VALUES ('$fname','$mname','$lname','$email','$password','$front','$back','$user_type','$position','$status','$studentid','$code')";
+      
+                  $query_run = mysqli_query($con, $query);
+      
+                  if($query_run){
+      
+                      $name = htmlentities($_POST['lname']);
+                      $email = htmlentities($_POST['email']);
+                      $subject = htmlentities('Username and Password Credentials');
+                      $message =  nl2br("Good day! \r\n This is your Online SSG Account! \r\n Email:$email \r\n Password: $password ");
+                  
+                      $mail = new PHPMailer(true);
+                      $mail->isSMTP();
+                      $mail->Host = 'smtp.gmail.com';
+                      $mail->SMTPAuth = true;
+                      $mail->Username = 'ssg.jbi7204@gmail.com';
+                      $mail->Password = 'fkqlcsiecymvoypb';
+                      $mail->Port = 465;
+                      $mail->SMTPSecure = 'ssl';
+                      $mail->isHTML(true);
+                      $mail->setFrom($email, $name);
+                      $mail->addAddress($email);
+                      $mail->Subject = ("$email ($subject)");
+                      $mail->Body = $message;
+                      $mail->send();
+        
+      
+                    $_SESSION['status'] = "Officer Account has been added, password is sent to their email.";
+                    $_SESSION['status_code'] = "success";
+                    header('Location: officer_account.php');
+                    exit(0);
+                  }else{
+                    $_SESSION['status'] = "Product Not Added!";
+                    $_SESSION['status_code'] = "error";
+                    header('Location: officer_account.php');
+                    exit(0);
+                  }
+      
+              }else{
+                  $_SESSION['status']="File is too large file must be 10mb";
+                  $_SESSION['status_code'] = "error"; 
+                  header('Location: officer_account.php');
+              }
+          }else{
+              $_SESSION['status']="File Error";
+              $_SESSION['status_code'] = "error"; 
+              header('Location: officer_account.php');
+          }
+      }else{
+          $_SESSION['status']="File not allowed";
+          $_SESSION['status_code'] = "error"; 
+          header('Location: officer_account.php');
+      }
+    }
+  }
 
 
 if(isset($_POST['logout_btn']))
@@ -55,117 +162,6 @@ if(isset($_POST['add_expense']))
       }
 
 }
-
-
-
-
-//add officer account
-if(isset($_POST["add_officer"])){
-  $front = $_FILES['front'];
-  $back = $_FILES['back'];
-
-  $fileName = $front['name'];
-  $fileTmpname = $front['tmp_name'];
-  $fileSize = $front['size'];
-  $fileError = $front['error'];
-
-  $fileExt = explode('.',$fileName);
-  $fileActExt = strtolower(end($fileExt));
-  $allowed = array('jpg','jpeg','png');
-
-  $fileName1 = $back['name'];
-  $fileTmpname1 = $back['tmp_name'];
-  $fileSize1 = $back['size'];
-  $fileError1 = $back['error'];
-
-  $fileExt1 = explode('.',$fileName1);
-  $fileActExt1 = strtolower(end($fileExt1));
-  $allowed1 = array('jpg','jpeg','png');
-
-  $email = $_POST['email'];
-
-  $checkemail = "SELECT email FROM user WHERE email='$email'";
-  $checkemail_run = mysqli_query($con,$checkemail);
-
-  if(mysqli_num_rows($checkemail_run) > 0)
-  {
-    $_SESSION['status'] = "Email already exist!";
-    $_SESSION['status_code'] = "error";
-    header("Location: officer_account.php");
-      exit(0);
-  }
-  else{
-    if(in_array($fileActExt, $allowed)){
-        if($fileError === 0){
-            if($fileSize < 50000000){
-              $fname = $_POST['fname'];
-              $mname = $_POST['mname'];
-              $lname = $_POST['lname'];
-              $email = $_POST['email'];
-              $password = uniqid();
-              $position = $_POST['role_as'];
-    
-              $user_type = 1;
-              $status = 1;
-              $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
-              $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
-    
-              $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `front`, `back`, `user_type`, `pos_name`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$front','$back','$user_type','$position','$status')";
-    
-                $query_run = mysqli_query($con, $query);
-    
-                if($query_run){
-    
-                    $name = htmlentities($_POST['lname']);
-                    $email = htmlentities($_POST['email']);
-                    $subject = htmlentities('Username and Password Credentials');
-                    $message =  nl2br("Good day! \r\n This is your Online SSG Account! \r\n Email:\$email\ \r\n Password: \$password\ ");
-                
-                    $mail = new PHPMailer(true);
-                    $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->SMTPAuth = true;
-                    $mail->Username = 'ssg.jbi7204@gmail.com';
-                    $mail->Password = 'fkqlcsiecymvoypb';
-                    $mail->Port = 465;
-                    $mail->SMTPSecure = 'ssl';
-                    $mail->isHTML(true);
-                    $mail->setFrom($email, $name);
-                    $mail->addAddress($_POST['email']);
-                    $mail->Subject = ("$email ($subject)");
-                    $mail->Body = $message;
-                    $mail->send();
-      
-    
-                  $_SESSION['status'] = "Officer Account has been added, password is sent to their email.";
-                  $_SESSION['status_code'] = "success";
-                  header('Location: officer_account.php');
-                  exit(0);
-                }else{
-                  $_SESSION['status'] = "Product Not Added!";
-                  $_SESSION['status_code'] = "error";
-                  header('Location: manage_product.php');
-                  exit(0);
-                }
-    
-            }else{
-                $_SESSION['status']="File is too large file must be 10mb";
-                $_SESSION['status_code'] = "error"; 
-                header('Location: manage_product.php');
-            }
-        }else{
-            $_SESSION['status']="File Error";
-            $_SESSION['status_code'] = "error"; 
-            header('Location: manage_product.php');
-        }
-    }else{
-        $_SESSION['status']="File not allowed";
-        $_SESSION['status_code'] = "error"; 
-        header('Location: manage_product.php');
-    }
-  }
-}
-
 
 
 

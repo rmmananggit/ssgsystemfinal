@@ -76,6 +76,14 @@ include('includes/header.php');
                                     </select>
                     </div>
 
+                    <div class="col-md-6 mb-3">
+                                    <label for="">Student I.D</label>
+                                    <input required type="text" Placeholder="Enter Student I.D Number" name="studentid" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                                 
+                    </div>
+
                  
 
                     <div class="col-md-6">
