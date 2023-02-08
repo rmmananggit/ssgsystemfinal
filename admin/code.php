@@ -104,13 +104,13 @@ if(isset($_POST["add_officer"])){
               $email = $_POST['email'];
               $password = uniqid();
               $position = $_POST['role_as'];
-    
+              $code = 0;
               $user_type = 1;
               $status = 1;
               $front = addslashes(file_get_contents($_FILES["front"]['tmp_name']));
               $back = addslashes(file_get_contents($_FILES["back"]['tmp_name']));
     
-              $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `front`, `back`, `user_type`, `pos_name`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$front','$back','$user_type','$position','$status')";
+              $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `front`, `back`, `user_type`, `pos_name`, `user_status`,`code`) VALUES ('$fname','$mname','$lname','$email','$password','$front','$back','$user_type','$position','$status','$code')";
     
                 $query_run = mysqli_query($con, $query);
     

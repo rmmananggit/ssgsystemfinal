@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>SSG</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -27,25 +27,19 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Login</h2>
-                        <form action="logincode.php" method="POST" enctype="multipart/form-data">
+                        <h2 class="form-title">Forgot Password</h2>
+                        <form action="forgotpasswordcode.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="email"  placeholder="Your Name"/>
+                                <input type="text" name="email"  placeholder="Enter Email Address"/>
                             </div>
+
                             <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" placeholder="Password"/>
+                            <a href="index.php" class="signup-image-link">Click here to login</a>
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <div class="form-group">
-                            <a href="forgotpassword.php" class="signup-image-link">Forgot Password</a>
-                            </div>
+                          
                             <div class="form-group form-button">
-                                <input type="submit" name="login_btn"  class="form-submit" value="Log in"/>
+                                <input type="submit" name="forgot_btn"  class="form-submit" value="Submit"/>
                             </div>
                         </form>
                     </div>

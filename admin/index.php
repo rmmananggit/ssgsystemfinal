@@ -328,7 +328,7 @@ ACTION
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 <form action="code.php" method="post">
-<a class="dropdown-item" type="button" href="officer_account_view.php?id=<?=$row['user_id'];?>">VIEW</a>
+<a class="dropdown-item" type="button" href="indexofficerview.php?id=<?=$row['user_id'];?>">VIEW</a>
 <button class="dropdown-item" type="submit" name="officer_active"  value="<?=$row['user_id'];?>" >Active</button>
 </form>
 </div>
