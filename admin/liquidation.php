@@ -135,7 +135,7 @@ include('includes/header.php');
      <?php if(isset($_SESSION['auth_user']))  ?>
 
     <label for="" hidden="true">user_id</label>
-    <input required type="text" hidden name="user_id" value="<?=  $_SESSION['auth_user']['user_id']; ?>" class="form-control">
+    <input required type="text" hidden name="user_id" value="<?=$_SESSION['auth_user']['user_id']; ?>" class="form-control">
 
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -154,3 +154,26 @@ include('includes/header.php');
 include('includes/footer.php');
 include('includes/scripts.php');
 ?>
+
+<div class="modal-body">
+<form action="process.php" method="POST">
+  
+<?php if(isset($_SESSION['auth_user']))  ?>
+
+<label for="" hidden="true">user_id</label>
+<input required type="text" name="user_id" value="<?=$_SESSION['auth_user']['user_id']; ?>">
+
+<div class="col-md-12 text-center">
+<button type="submit" name="time_in" class="btn btn-primary">TIME IN</button>
+</div>
+
+<div class="col-md-12 text-center mt-3">
+<button type="button" class="btn btn-secondary">TIME OUT</button>
+</div>
+
+  
+
+
+      
+</form>
+    </div>
