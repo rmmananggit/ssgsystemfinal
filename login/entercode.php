@@ -27,31 +27,19 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Login</h2>
-                        <form action="logincode.php" method="POST" enctype="multipart/form-data">
+                        <h2 class="form-title">Enter Code</h2>
+                        <form action="entercode.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="email"  placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <div class="form-group">
-<<<<<<< HEAD
-                            <a href="studentregister.php" class="signup-image-link">Forgot Password</a>
+                                <label for="email"></label>
+                                <input type="text" name="email"  placeholder="Enter Code"/>
                             </div>
 
-=======
-                            <a href="forgotpassword.php" class="signup-image-link">Forgot Password</a>
+                            <div class="form-group">
+                            <a href="index.php" class="signup-image-link">Click here to login</a>
                             </div>
->>>>>>> 5d9103411e4d601b28fd929b82910803e67f3b42
+                          
                             <div class="form-group form-button">
-                                <input type="submit" name="login_btn"  class="form-submit" value="Log in"/>
+                                <input type="submit" name="forgot_btn"  class="form-submit" value="Submit"/>
                             </div>
                         </form>
                     </div>
