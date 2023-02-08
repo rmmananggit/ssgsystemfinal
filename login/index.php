@@ -42,14 +42,9 @@
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group">
-<<<<<<< HEAD
                             <a href="studentregister.php" class="signup-image-link">Forgot Password</a>
                             </div>
 
-=======
-                            <a href="forgotpassword.php" class="signup-image-link">Forgot Password</a>
-                            </div>
->>>>>>> 5d9103411e4d601b28fd929b82910803e67f3b42
                             <div class="form-group form-button">
                                 <input type="submit" name="login_btn"  class="form-submit" value="Log in"/>
                             </div>
