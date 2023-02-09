@@ -19,9 +19,25 @@ if(isset($_POST['logout_btn']))
 
 <?php
 
-if(isset($_POST['download_qr']))
+if(isset($_POST['downloadqr']))
 {
-   
+    $downloadqr= $_POST['downloadqr'];
+
+    
+$sql = "SELECT fee_qr FROM qrcode WHERE id='$downloadqr'";
+$result = $con->query($sql);
+
+
+if ($result->num_rows > 0) {
+    // output data of the specific row
+    while($row = $result->fetch_assoc()) {
+        $image = $row["fee_qr"];
+        $file = "image.png";
+        file_put_contents($file, $image);
+    }
+} else {
+    echo "0 results";
+}
 }
 
 

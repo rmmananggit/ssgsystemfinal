@@ -273,4 +273,36 @@ if(isset($_POST['payfines_btn']))
     
     }
 }
+
+
+
+if(isset($_POST['add_expense']))
+{
+
+    $date = new DateTime();
+    $date->setTimezone(new DateTimeZone('UTC'));
+    $date_added = $date->format('Y-m-d H:i:s');
+
+
+    $user_id = $_POST['user_id'];
+    $purpose = $_POST['purpose'];
+    $amount = $_POST['amount'];
+
+    $query = "INSERT INTO `ssg_expenses`( `user`, `purpose`, `amount`, `date`) VALUES ('$user_id','$purpose','$amount','$date_added')";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run){
+        $_SESSION['status'] = "Expenses Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: liquidation.php');
+        exit(0);
+      }else{
+        $_SESSION['status'] = "Something went wrong!";
+        $_SESSION['status_code'] = "error";
+        header('Location: liquidation.php');
+        exit(0);
+      }
+
+}
+
 ?>

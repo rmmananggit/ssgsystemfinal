@@ -25,7 +25,7 @@ include('includes/header.php');
 <div class="container-fluid px-4">
                         <ol class="breadcrumb mb-4 mt-3">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Announcement</li>
+                            <li class="breadcrumb-item active">QR</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -35,26 +35,27 @@ include('includes/header.php');
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Title</th>
-                                            <th>Message</th>
-                                            <th>Author</th>
-                                            <th>Date</th>
-                                   
+                                            <th>Name</th>
+                                            <th>QR</th>
+                                            <th>Date Added</th>
+                                            <th>Status</th>
+                                            <th>ACTION</th>
+                                        
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Title</th>
-                                            <th>Message</th>
-                                            <th>Author</th>
-                                            <th>Date</th>
-                                   
+                                            <th>Name</th>
+                                            <th>QR</th>
+                                            <th>Date Added</th>
+                                            <th>Status</th>
+                                            <th>ACTION</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                            $query = "SELECT * FROM `announcement`";
+                            $query = "SELECT * FROM `qrcode` WHERE `status` = 'Active' ";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -62,12 +63,23 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['announcement_id']; ?></td>
-                                    <td><?= $row['announcement_title']; ?></td>
-                                    <td><?= $row['announcement_body']; ?></td>
-                                    <td><?= $row['announcement_publish']; ?></td>
-                                    <td><?= $row['announcement_date']; ?></td>
-                                  
+                                    <td><?= $row['id']; ?></td>
+                                    <td><?= $row['name']; ?></td>
+                                    <td>  <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['fee_qr']).'" 
+                                        alt="image" style="height: 250px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
+                                    <td><?= $row['date']; ?></td>
+                                    <td><?= $row['status']; ?></td>
+
+                                    <td>
+                                          
+                                    <form action="code.php" method="POST">  
+                                        <button class="btn btn-outline-primary" type="submit" name="downloadqr" value="<?=$row['id']; ?>"> Download
+                                            </button> 
+                                        </form> 
+
+                                    </td>
                                     </tr>
                                     <?php
                                 }
@@ -81,6 +93,8 @@ include('includes/header.php');
                                 <td>No Record Found</td>
                                 <td>No Record Found</td>
                                 <td>No Record Found</td>
+                                <td>No Record Found</td>
+                        
                                 </tr>
                             <?php
                             }

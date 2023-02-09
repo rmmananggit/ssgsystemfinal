@@ -20,7 +20,7 @@
 <style type="text/css" media="print">
  @media print{
     .noprint, .noprint *{
-        display: none; !important;
+        display: none;
     }
  }
 
