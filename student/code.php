@@ -23,31 +23,16 @@ if(isset($_POST['downloadqr']))
 {
     $downloadqr= $_POST['downloadqr'];
 
+    $sql = "SELECT fee_qr FROM qrcode WHERE id = 'downloadqr'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $image = $row["image"];
     
-$sql = "SELECT fee_qr FROM qrcode WHERE id='$downloadqr'";
-$result = $con->query($sql);
-
-
-if ($result->num_rows > 0) {
-    // output data of the specific row
-    while($row = $result->fetch_assoc()) {
-        $image = $row["fee_qr"];
-        $file = "image.png";
-        file_put_contents($file, $image);
-    }
-} else {
-    echo "0 results";
-}
+    // Send the BLOB data to the browser
+    header("Content-Type: image/png");
+    echo $image;
 }
 
-
-?>
-
-
-
-
-
-<?php
 if(isset($_POST['penalty']))
 {
     $user_id= $_POST['user_id'];
@@ -73,4 +58,3 @@ if(isset($_POST['penalty']))
         exit(0);
     }
 }
-?>

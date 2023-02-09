@@ -67,12 +67,16 @@ if(isset($_POST['announcement_delete']))
 <?php
 if(isset($_POST['add_qr']))
 {
+  $image = $_FILES["qr"];
+  $info = getimagesize($image["tmp_name"]);
+
     $name= $_POST['name'];
     $date= $_POST['date'];
-    $qr = addslashes(file_get_contents($_FILES["qr"]['tmp_name']));
+    $type = $image["type"];
+    $qr = addslashes(file_get_contents($image['tmp_name']));
     $status = "Active";
 
-    $query = "INSERT INTO `qrcode`(`name`, `fee_qr`, `date`,`status`) VALUES ('$name','$qr','$date','$status')";
+    $query = "INSERT INTO `qrcode`(`type`, `name`, `fee_qr`, `date`, `status`) VALUES ('$type','$name','$qr','$date','$status')";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)
